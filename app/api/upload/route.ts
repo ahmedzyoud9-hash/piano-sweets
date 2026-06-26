@@ -1,44 +1,82 @@
-import { handleUpload, type HandleUploadBody } from "@vercel/blob/client";
 import { NextResponse } from "next/server";
 
-// Client-upload handler: the browser uploads directly to Vercel Blob using a
-// short-lived token that we only mint after verifying the admin password.
-export async function POST(request: Request): Promise<NextResponse> {
-  const body = (await request.json()) as HandleUploadBody;
+export const runtime = "nodejs";
 
+const OWNER = "ahmedzyoud9-hash";
+const REPO = "piano-sweets";
+const BRANCH = "main";
+const DIR = "public/products/uploads";
+
+// Free storage: uploaded images are committed straight into the repo via the
+// GitHub Contents API. The admin password is verified server-side first.
+export async function POST(request: Request) {
   try {
-    const jsonResponse = await handleUpload({
-      body,
-      request,
-      onBeforeGenerateToken: async (_pathname, clientPayload) => {
-        const adminPassword = process.env.ADMIN_PASSWORD;
-        if (!adminPassword) {
-          throw new Error("ADMIN_PASSWORD غير مهيأ على الخادم.");
-        }
-        if (clientPayload !== adminPassword) {
-          throw new Error("كلمة السر غير صحيحة.");
-        }
-        return {
-          allowedContentTypes: [
-            "image/jpeg",
-            "image/png",
-            "image/webp",
-            "image/avif",
-          ],
-          addRandomSuffix: true,
-          maximumSizeInBytes: 15 * 1024 * 1024,
-        };
-      },
-      onUploadCompleted: async () => {
-        // No-op: images are listed on demand via /api/images.
-      },
-    });
+    const form = await request.formData();
+    const password = form.get("password");
+    const file = form.get("file");
 
-    return NextResponse.json(jsonResponse);
+    if (!process.env.ADMIN_PASSWORD) {
+      return NextResponse.json(
+        { error: "ADMIN_PASSWORD غير مهيأ على الخادم." },
+        { status: 500 }
+      );
+    }
+    if (password !== process.env.ADMIN_PASSWORD) {
+      return NextResponse.json({ error: "كلمة السر غير صحيحة." }, { status: 401 });
+    }
+    if (!process.env.GITHUB_TOKEN) {
+      return NextResponse.json(
+        { error: "GITHUB_TOKEN غير مهيأ على الخادم." },
+        { status: 500 }
+      );
+    }
+    if (!(file instanceof File)) {
+      return NextResponse.json({ error: "لم يتم إرسال ملف." }, { status: 400 });
+    }
+
+    const buffer = Buffer.from(await file.arrayBuffer());
+    const base64 = buffer.toString("base64");
+    const ext = (file.name.split(".").pop() || "jpg").toLowerCase();
+    const safeName = `${Date.now()}-${Math.random()
+      .toString(36)
+      .slice(2, 8)}.${ext}`;
+    const path = `${DIR}/${safeName}`;
+
+    const res = await fetch(
+      `https://api.github.com/repos/${OWNER}/${REPO}/contents/${path}`,
+      {
+        method: "PUT",
+        headers: {
+          Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+          Accept: "application/vnd.github+json",
+          "X-GitHub-Api-Version": "2022-11-28",
+        },
+        body: JSON.stringify({
+          message: `Upload product image ${safeName}`,
+          content: base64,
+          branch: BRANCH,
+        }),
+      }
+    );
+
+    if (!res.ok) {
+      const detail = await res.text();
+      return NextResponse.json(
+        { error: `فشل الحفظ على GitHub (${res.status}). ${detail.slice(0, 120)}` },
+        { status: 502 }
+      );
+    }
+
+    const data = await res.json();
+    return NextResponse.json({
+      ok: true,
+      url: data?.content?.download_url ?? null,
+      name: safeName,
+    });
   } catch (error) {
     return NextResponse.json(
-      { error: (error as Error).message },
-      { status: 400 }
+      { error: (error as Error).message || "فشل الرفع." },
+      { status: 500 }
     );
   }
 }
