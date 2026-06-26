@@ -1,4 +1,3 @@
-import Motif from "./Motif";
 import Reveal from "./Reveal";
 import styles from "./Founder.module.css";
 
@@ -7,10 +6,12 @@ export default function Founder() {
     <section id="founder" className={styles.section}>
       <div className={`${styles.inner} grid2`}>
         <Reveal className={styles.portrait}>
-          <div className={styles.portraitInner}>
-            <Motif variant="large" />
-            <p className={styles.portraitLabel}>FOUNDER PORTRAIT</p>
-          </div>
+          <img
+            src="/products/collection-3.jpg"
+            alt="مؤسّس بيانو"
+            className={styles.portraitImg}
+            loading="lazy"
+          />
         </Reveal>
         <Reveal>
           <span className={styles.eyebrow}>THE FOUNDER</span>
