@@ -85,3 +85,18 @@
   opacity: 0.66;
   margin-top: 4px;
 }
+
+@media (max-width: 760px) {
+  .cell {
+    padding: 26px 22px;
+    min-height: 0;
+    gap: 10px;
+  }
+  .ar {
+    font-size: 20px;
+  }
+  .desc {
+    font-size: 13.5px;
+    line-height: 1.75;
+  }
+}
