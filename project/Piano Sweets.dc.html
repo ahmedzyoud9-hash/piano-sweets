@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&family=Tajawal:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{background:#3E1E21}
+    ::selection{background:#DDC9A4;color:#3E1E21}
+    .reveal{opacity:0;transform:translateY(26px);transition:opacity 1.1s cubic-bezier(.2,.7,.2,1),transform 1.1s cubic-bezier(.2,.7,.2,1)}
+    .reveal.in{opacity:1;transform:none}
+    @keyframes floatkey{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+    .pn-input::placeholder{color:rgba(94,59,54,.5)}
+    @media (max-width:1080px){
+      .grid3{grid-template-columns:1fr 1fr !important}
+    }
+    @media (max-width:760px){
+      .grid3,.grid2,.footgrid,.formgrid{grid-template-columns:1fr !important}
+      #topnav{padding:15px 22px !important}
+      .navlinks{display:none !important}
+    }
+  </style>
+</helmet>
+<div dir="rtl" style="font-family:'Tajawal',sans-serif;background:#3E1E21;color:#DDC9A4;min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased">
+
+  <!-- NAV -->
+  <header style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;backdrop-filter:blur(10px);background:linear-gradient(180deg,rgba(44,21,23,.72),rgba(44,21,23,0));transition:background .4s" id="topnav">
+    <a href="#top" onClick="{{ goTop }}" style="display:flex;align-items:baseline;gap:10px;text-decoration:none;color:#DDC9A4">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:500;letter-spacing:.22em">PIANO</span>
+      <span style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:.5em;opacity:.7;padding-bottom:3px">SWEETS</span>
+    </a>
+    <nav class="navlinks" style="display:flex;gap:34px;align-items:center">
+      <sc-for list="{{ navLinks }}" as="link" hint-placeholder-count="5">
+        <a href="{{ link.href }}" style="font-family:'Tajawal',sans-serif;font-size:14px;font-weight:300;letter-spacing:.04em;color:#DDC9A4;text-decoration:none;opacity:.78;transition:opacity .3s" style-hover="opacity:1">{{ link.label }}</a>
+      </sc-for>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" style="position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 90% 60% at 50% 38%,#4a262a 0%,#3E1E21 55%,#2C1517 100%)"></div>
+    <!-- piano string lines -->
+    <div style="position:absolute;inset:0;display:flex;justify-content:center;gap:46px;opacity:.06;pointer-events:none">
+      <span style="width:1px;background:linear-gradient(180deg,transparent,#DDC9A4 30%,#DDC9A4 70%,transparent);height:100%"></span>
+      <span style="width:1px;background:linear-gradient(180deg,transparent,#DDC9A4 30%,#DDC9A4 70%,transparent);height:100%"></span>
+      <span style="width:1px;background:linear-gradient(180deg,transparent,#DDC9A4 30%,#DDC9A4 70%,transparent);height:100%"></span>
+      <span style="width:1px;background:linear-gradient(180deg,transparent,#DDC9A4 30%,#DDC9A4 70%,transparent);height:100%"></span>
+      <span style="width:1px;background:linear-gradient(180deg,transparent,#DDC9A4 30%,#DDC9A4 70%,transparent);height:100%"></span>
+    </div>
+
+    <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center">
+      <div style="animation:floatkey 7s ease-in-out infinite">
+        <img src="assets/piano-logo.jpeg" alt="Piano Sweets" style="width:min(440px,76vw);height:auto;display:block;mix-blend-mode:lighten" />
+      </div>
+      <div style="width:54px;height:1px;background:#C2A063;margin:30px 0 26px"></div>
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:clamp(26px,3.6vw,40px);color:#EBDDC2;letter-spacing:.01em;line-height:1.3">Composed like music</p>
+      <p style="font-family:'Tajawal',sans-serif;font-weight:200;font-size:clamp(17px,2vw,21px);letter-spacing:.32em;margin-top:8px;opacity:.82">مؤلَّفة كالموسيقى</p>
+      <p style="max-width:540px;margin-top:30px;font-weight:300;font-size:16px;line-height:2;opacity:.66">شوكولا فاخرة تتحوّل إلى تجربة عاطفية — حيث تُصاغ كل نكهة بتوازنٍ ودِفءٍ وأناقة، تماماً كما تُؤلَّف الموسيقى.</p>
+      <a href="#story" style="margin-top:42px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.34em;color:#3E1E21;background:#DDC9A4;padding:15px 34px;text-decoration:none;border-radius:2px;transition:transform .35s,background .35s" style-hover="background:#EBDDC2;transform:translateY(-2px)">DISCOVER PIANO</a>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section id="story" style="position:relative;background:#F6F1E7;color:#3E1E21;padding:clamp(90px,12vw,160px) 24px">
+    <div style="max-width:980px;margin:0 auto;text-align:center">
+      <div class="reveal" style="display:inline-flex;flex-direction:column;align-items:center">
+        <span style="font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.42em;color:#B0894E">OUR STORY</span>
+        <h2 style="font-family:'Tajawal',sans-serif;font-weight:300;font-size:clamp(34px,5vw,58px);margin-top:16px;letter-spacing:.01em">قصة العلامة</h2>
+        <div style="width:40px;height:1px;background:#C2A063;margin:28px 0"></div>
+      </div>
+      <p class="reveal" style="font-weight:300;font-size:clamp(18px,2.1vw,22px);line-height:2.1;color:#5a3b36;max-width:760px;margin:0 auto;text-wrap:pretty">
+        وُلدت <span style="font-family:'Cormorant Garamond',serif;font-style:italic;color:#3E1E21">بيانو</span> لتحوّل الشوكولا إلى تجربةٍ عاطفية. فكما تُؤلَّف كل مقطوعةٍ موسيقية بعناية لتخلق توازناً وجمالاً، تُصنع كل قطعةٍ من بيانو باستخدام أجود الشوكولا الفرنسية ومكوّناتٍ مُنتقاة، لتمنحك لحظاتٍ من الأناقة والدفء والفخامة.
+      </p>
+      <p class="reveal" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:clamp(22px,2.6vw,30px);line-height:1.6;color:#3E1E21;margin-top:48px">
+        “At Piano, chocolate is more than a gift —<br/>it is a language of emotion and unforgettable memories.”
+      </p>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY / DNA -->
+  <section id="philosophy" style="position:relative;background:#3E1E21;color:#DDC9A4;padding:clamp(90px,12vw,160px) 24px">
+    <div style="max-width:1120px;margin:0 auto">
+      <div class="reveal" style="text-align:center;display:flex;flex-direction:column;align-items:center;margin-bottom:64px">
+        <span style="font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.42em;color:#C2A063">BRAND DNA</span>
+        <h2 style="font-family:'Tajawal',sans-serif;font-weight:300;font-size:clamp(34px,5vw,58px);margin-top:16px">الفلسفة</h2>
+        <p style="font-weight:200;font-size:16px;opacity:.6;margin-top:14px;letter-spacing:.04em">انسجامٌ يجمع بين الفنّ والعاطفة والفخامة</p>
+      </div>
+      <div class="grid3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(221,201,164,.16);border:1px solid rgba(221,201,164,.16)">
+        <sc-for list="{{ values }}" as="v" hint-placeholder-count="6">
+          <div class="reveal" style="background:#3E1E21;padding:48px 34px;display:flex;flex-direction:column;gap:14px;min-height:210px;transition:background .5s" style-hover="background:#46242800">
+            <span style="font-family:'Cormorant Garamond',serif;font-size:18px;color:#C2A063;letter-spacing:.2em">{{ v.note }}</span>
+            <h3 style="font-family:'Tajawal',sans-serif;font-weight:500;font-size:24px;color:#EBDDC2">{{ v.ar }}</h3>
+            <span style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.34em;opacity:.5">{{ v.en }}</span>
+            <p style="font-weight:300;font-size:14.5px;line-height:1.9;opacity:.66;margin-top:4px">{{ v.desc }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER -->
+  <section id="founder" style="position:relative;background:#2C1517;color:#DDC9A4;padding:clamp(90px,12vw,160px) 24px;overflow:hidden">
+    <div class="grid2" style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,90px);align-items:center">
+      <div class="reveal" style="position:relative;aspect-ratio:4/5;border:1px solid rgba(221,201,164,.28);display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(135deg,#34191c,#34191c 12px,#3a1d20 12px,#3a1d20 24px)">
+        <div style="text-align:center;opacity:.5">
+          <div style="width:60px;height:90px;border:1px solid #DDC9A4;border-radius:30px;margin:0 auto;position:relative">
+            <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);width:4px;height:4px;border-radius:50%;background:#DDC9A4"></span>
+            <span style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);width:4px;height:4px;border-radius:50%;background:#DDC9A4"></span>
+          </div>
+          <p style="font-family:'Jost',monospace;font-size:10px;letter-spacing:.3em;margin-top:20px">FOUNDER PORTRAIT</p>
+        </div>
+      </div>
+      <div class="reveal">
+        <span style="font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.42em;color:#C2A063">THE FOUNDER</span>
+        <h2 style="font-family:'Tajawal',sans-serif;font-weight:300;font-size:clamp(32px,4.4vw,52px);margin-top:16px;line-height:1.2">شوكولاتييه<br/>وعازف بيانو</h2>
+        <div style="width:40px;height:1px;background:#C2A063;margin:26px 0"></div>
+        <p style="font-weight:300;font-size:17px;line-height:2.1;opacity:.78;text-wrap:pretty">آمن مؤسّس بيانو دائماً بأن جمال الموسيقى يكمن في الانسجام، حيث تتآلف كل نوتة مع الأخرى لتخلق عاطفةً وتجربةً لا تُنسى. ومن هذه الفلسفة وُلدت بيانو.</p>
+        <p style="font-weight:300;font-size:17px;line-height:2.1;opacity:.78;margin-top:18px;text-wrap:pretty">فبمقاربته للشوكولا كما يقارب الموسيقيّ التأليف، يصوغ النكهات بتوازنٍ وعمقٍ وقوامٍ وأناقة، محوّلاً كل مجموعةٍ إلى تجربةٍ حسية مستوحاة من الموسيقى ذاتها.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLLECTIONS -->
+  <section id="collections" style="position:relative;background:#F6F1E7;color:#3E1E21;padding:clamp(90px,12vw,160px) 24px">
+    <div style="max-width:1180px;margin:0 auto">
+      <div class="reveal" style="text-align:center;display:flex;flex-direction:column;align-items:center;margin-bottom:60px">
+        <span style="font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.42em;color:#B0894E">COLLECTIONS</span>
+        <h2 style="font-family:'Tajawal',sans-serif;font-weight:300;font-size:clamp(34px,5vw,58px);margin-top:16px">المجموعات</h2>
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(20px,2.4vw,26px);color:#7a5249;margin-top:12px">Every flavor plays a different note.</p>
+      </div>
+      <div class="grid3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px">
+        <sc-for list="{{ collections }}" as="c" hint-placeholder-count="3">
+          <div class="reveal" style="display:flex;flex-direction:column">
+            <div style="aspect-ratio:4/5;background:repeating-linear-gradient(135deg,#ece2cf,#ece2cf 14px,#e6dac2 14px,#e6dac2 28px);border:1px solid #d8c8a6;display:flex;align-items:flex-end;justify-content:center;position:relative;overflow:hidden;transition:transform .5s" style-hover="transform:translateY(-6px)">
+              <span style="position:absolute;top:20px;right:22px;font-family:'Cormorant Garamond',serif;font-size:46px;color:#c2a063;opacity:.55">{{ c.num }}</span>
+              <span style="font-family:'Jost',monospace;font-size:10px;letter-spacing:.28em;color:#9a8156;padding-bottom:22px">{{ c.shot }}</span>
+            </div>
+            <h3 style="font-family:'Tajawal',sans-serif;font-weight:500;font-size:22px;margin-top:20px">{{ c.ar }}</h3>
+            <span style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.3em;color:#b0894e;margin-top:6px">{{ c.en }}</span>
+            <p style="font-weight:300;font-size:15px;line-height:1.9;color:#6a4a43;margin-top:10px">{{ c.desc }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- OCCASIONS -->
+  <section id="occasions" style="position:relative;background:#3E1E21;color:#DDC9A4;padding:clamp(90px,12vw,160px) 24px">
+    <div style="max-width:1080px;margin:0 auto">
+      <div class="reveal" style="text-align:center;display:flex;flex-direction:column;align-items:center;margin-bottom:60px">
+        <span style="font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.42em;color:#C2A063">OCCASIONS</span>
+        <h2 style="font-family:'Tajawal',sans-serif;font-weight:300;font-size:clamp(34px,5vw,58px);margin-top:16px">المناسبات</h2>
+        <p style="font-weight:200;font-size:16px;opacity:.6;margin-top:14px">تجربةٌ تبقى طويلاً بعد آخر نوتة</p>
+      </div>
+      <div class="grid3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+        <sc-for list="{{ occasions }}" as="o" hint-placeholder-count="3">
+          <div class="reveal" style="border:1px solid rgba(221,201,164,.2);padding:48px 32px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px;transition:border-color .5s,background .5s" style-hover="border-color:rgba(221,201,164,.45);background:rgba(221,201,164,.04)">
+            <div style="width:46px;height:70px;border:1px solid #C2A063;border-radius:23px;position:relative;margin-bottom:6px">
+              <span style="position:absolute;top:11px;left:50%;transform:translateX(-50%);width:3.5px;height:3.5px;border-radius:50%;background:#C2A063"></span>
+              <span style="position:absolute;bottom:11px;left:50%;transform:translateX(-50%);width:3.5px;height:3.5px;border-radius:50%;background:#C2A063"></span>
+            </div>
+            <h3 style="font-family:'Tajawal',sans-serif;font-weight:500;font-size:23px;color:#EBDDC2">{{ o.ar }}</h3>
+            <span style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.32em;opacity:.5">{{ o.en }}</span>
+            <p style="font-weight:300;font-size:14.5px;line-height:1.9;opacity:.66">{{ o.desc }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENQUIRY -->
+  <section id="enquiry" style="position:relative;background:#F6F1E7;color:#3E1E21;padding:clamp(90px,12vw,160px) 24px">
+    <div class="formgrid" style="max-width:1040px;margin:0 auto;display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,6vw,80px);align-items:start">
+      <div class="reveal">
+        <span style="font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.42em;color:#B0894E">ENQUIRIES &amp; ORDERS</span>
+        <h2 style="font-family:'Tajawal',sans-serif;font-weight:300;font-size:clamp(32px,4.6vw,52px);margin-top:16px;line-height:1.2">اطلب<br/>تجربتك الخاصة</h2>
+        <div style="width:40px;height:1px;background:#C2A063;margin:26px 0"></div>
+        <p style="font-weight:300;font-size:16px;line-height:2;color:#5a3b36;max-width:340px;text-wrap:pretty">لطلبات الأفراد، الإهداء، أو المناسبات والشركات — اترك تفاصيلك وسيتواصل معك فريق بيانو لتأليف تجربةٍ تليق باللحظة.</p>
+        <div style="margin-top:34px;display:flex;flex-direction:column;gap:10px">
+          <span style="font-weight:400;font-size:15px">مجمع الغوالي — الكويت</span>
+          <span style="font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.06em;direction:ltr;text-align:right;opacity:.7">+965 0000 0000</span>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="border:1px solid #C2A063;background:#fff;padding:48px 36px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px">
+            <div style="width:46px;height:70px;border:1px solid #C2A063;border-radius:23px;position:relative">
+              <span style="position:absolute;top:11px;left:50%;transform:translateX(-50%);width:3.5px;height:3.5px;border-radius:50%;background:#C2A063"></span>
+              <span style="position:absolute;bottom:11px;left:50%;transform:translateX(-50%);width:3.5px;height:3.5px;border-radius:50%;background:#C2A063"></span>
+            </div>
+            <h3 style="font-family:'Tajawal',sans-serif;font-weight:500;font-size:24px;margin-top:6px">شكراً لك</h3>
+            <p style="font-weight:300;font-size:15px;line-height:1.9;color:#5a3b36;max-width:300px">وصلنا طلبك — سيتواصل معك فريق بيانو قريباً لتأليف تجربتك.</p>
+            <button onClick="{{ reset }}" style="margin-top:10px;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.3em;background:none;border:none;color:#B0894E;cursor:pointer;text-decoration:underline;text-underline-offset:4px">SEND ANOTHER</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:18px">
+            <div class="formgrid" style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+              <input class="pn-input" required placeholder="الاسم" style="font-family:'Tajawal',sans-serif;font-size:15px;font-weight:300;color:#3E1E21;background:#fff;border:1px solid #ddccac;padding:15px 16px;border-radius:2px;outline:none" />
+              <input class="pn-input" required placeholder="رقم التواصل" style="font-family:'Tajawal',sans-serif;font-size:15px;font-weight:300;color:#3E1E21;background:#fff;border:1px solid #ddccac;padding:15px 16px;border-radius:2px;outline:none" />
+            </div>
+            <select class="pn-input" style="font-family:'Tajawal',sans-serif;font-size:15px;font-weight:300;color:#5e3b36;background:#fff;border:1px solid #ddccac;padding:15px 16px;border-radius:2px;outline:none;appearance:none">
+              <option>نوع الطلب — أفراد</option>
+              <option>إهداء فاخر</option>
+              <option>مناسبة / عُرس</option>
+              <option>طلب شركات</option>
+            </select>
+            <textarea class="pn-input" rows="4" placeholder="تفاصيل طلبك أو مناسبتك" style="font-family:'Tajawal',sans-serif;font-size:15px;font-weight:300;color:#3E1E21;background:#fff;border:1px solid #ddccac;padding:15px 16px;border-radius:2px;outline:none;resize:vertical"></textarea>
+            <button type="submit" style="margin-top:6px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.34em;color:#F6F1E7;background:#3E1E21;border:none;padding:17px 34px;border-radius:2px;cursor:pointer;transition:background .35s" style-hover="background:#2C1517">SEND ENQUIRY</button>
+          </form>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY PHRASE BANNER -->
+  <section style="background:#2C1517;color:#DDC9A4;padding:clamp(80px,11vw,140px) 24px;text-align:center">
+    <p class="reveal" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:clamp(28px,4.4vw,52px);line-height:1.5;max-width:900px;margin:0 auto;color:#EBDDC2">“Where emotion inspires creation.”</p>
+    <p class="reveal" style="font-family:'Tajawal',sans-serif;font-weight:200;font-size:clamp(16px,2vw,20px);letter-spacing:.2em;margin-top:18px;opacity:.7">حيث تُلهم العاطفة الإبداع</p>
+  </section>
+
+  <!-- CONTACT / FOOTER -->
+  <footer id="contact" style="background:#3E1E21;color:#DDC9A4;padding:clamp(80px,10vw,130px) 24px 48px">
+    <div style="max-width:1080px;margin:0 auto">
+      <div class="footgrid" style="display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:48px;align-items:start;padding-bottom:64px;border-bottom:1px solid rgba(221,201,164,.16)">
+        <div class="reveal">
+          <div style="display:flex;align-items:baseline;gap:10px">
+            <span style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:500;letter-spacing:.2em">PIANO</span>
+            <span style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.5em;opacity:.7;padding-bottom:4px">SWEETS</span>
+          </div>
+          <p style="font-weight:300;font-size:15px;line-height:2;opacity:.66;margin-top:20px;max-width:320px">شوكولا فاخرة مؤلَّفة كالموسيقى — من أجود الشوكولا الفرنسية، صُنعت لتُلهم وتُهدى وتبقى في الذاكرة.</p>
+        </div>
+        <div class="reveal" style="display:flex;flex-direction:column;gap:14px">
+          <span style="font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.34em;color:#C2A063;margin-bottom:6px">VISIT US</span>
+          <span style="font-weight:300;font-size:15px;opacity:.8">مجمع الغوالي — الكويت</span>
+          <span style="font-weight:300;font-size:15px;opacity:.8;direction:ltr;text-align:right">Al Ghawali Complex, Kuwait</span>
+        </div>
+        <div class="reveal" style="display:flex;flex-direction:column;gap:14px">
+          <span style="font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.34em;color:#C2A063;margin-bottom:6px">CONNECT</span>
+          <a href="#" style="font-weight:300;font-size:15px;opacity:.8;color:#DDC9A4;text-decoration:none;transition:opacity .3s" style-hover="opacity:1">Instagram</a>
+          <a href="#" style="font-weight:300;font-size:15px;opacity:.8;color:#DDC9A4;text-decoration:none;transition:opacity .3s" style-hover="opacity:1">WhatsApp</a>
+          <a href="#" style="font-weight:300;font-size:15px;opacity:.8;color:#DDC9A4;text-decoration:none;transition:opacity .3s" style-hover="opacity:1">Enquiries</a>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;padding-top:28px">
+        <span style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.2em;opacity:.45">© 2026 PIANO SWEETS · ALL RIGHTS RESERVED</span>
+        <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;opacity:.6">Crafted in harmony.</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<template id="__bundler_thumbnail" data-bg-color="#3E1E21">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#3E1E21"/>
+    <rect x="540" y="250" width="120" height="200" rx="60" fill="none" stroke="#DDC9A4" stroke-width="4"/>
+    <circle cx="600" cy="295" r="6" fill="#DDC9A4"/>
+    <circle cx="600" cy="405" r="6" fill="#DDC9A4"/>
+    <text x="600" y="560" text-anchor="middle" font-family="Georgia, serif" font-size="76" letter-spacing="14" fill="#DDC9A4">PIANO</text>
+    <text x="600" y="600" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" letter-spacing="16" fill="#C2A063">SWEETS</text>
+  </svg>
+</template>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { sent: false };
+  componentDidMount() {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    this.el.querySelectorAll('.reveal').forEach((n, i) => {
+      n.style.transitionDelay = (Math.min(i % 3, 2) * 0.09) + 's';
+      io.observe(n);
+    });
+    const nav = this.el.querySelector('#topnav');
+    const onScroll = () => {
+      if (!nav) return;
+      nav.style.background = window.scrollY > 60
+        ? 'rgba(44,21,23,.86)' : 'linear-gradient(180deg,rgba(44,21,23,.72),rgba(44,21,23,0))';
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    this._onScroll = onScroll;
+  }
+  componentWillUnmount() { if (this._onScroll) window.removeEventListener('scroll', this._onScroll); }
+  get el() { return this._root || (this._root = document.querySelector('[dir=rtl]')); }
+  renderVals() {
+    return {
+      goTop: (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); },
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      submit: (e) => { e.preventDefault(); this.setState({ sent: true }); },
+      reset: () => this.setState({ sent: false }),
+      navLinks: [
+        { label: 'قصتنا', href: '#story' },
+        { label: 'الفلسفة', href: '#philosophy' },
+        { label: 'المؤسس', href: '#founder' },
+        { label: 'المجموعات', href: '#collections' },
+        { label: 'اطلب', href: '#enquiry' },
+        { label: 'تواصل', href: '#contact' },
+      ],
+      values: [
+        { note: '♪', ar: 'الانسجام', en: 'HARMONY', desc: 'توازنٌ دقيق بين النكهات والقوام، كما تتآلف النوتات في مقطوعة.' },
+        { note: '♪', ar: 'الرُقيّ', en: 'SOPHISTICATION', desc: 'لمسةٌ راقية في كل تفصيل، من المكوّن إلى التقديم.' },
+        { note: '♪', ar: 'العاطفة', en: 'EMOTION', desc: 'لغةٌ من المشاعر والتقدير تتجاوز كونها مجرّد هدية.' },
+        { note: '♪', ar: 'الحِرفية', en: 'CRAFTSMANSHIP', desc: 'صناعةٌ يدوية متقنة بأجود الشوكولا الفرنسية.' },
+        { note: '♪', ar: 'الفخامة الفنية', en: 'ARTISTIC LUXURY', desc: 'فنٌّ وفخامة يجتمعان في تجربةٍ بصرية وحسية.' },
+        { note: '♪', ar: 'التجربة الحسية', en: 'SENSORY EXPERIENCE', desc: 'لحظاتٌ تُعاش بكل الحواس وتبقى طويلاً في الذاكرة.' },
+      ],
+      collections: [
+        { num: 'I', shot: 'COLLECTION SHOT', ar: 'مجموعة التوقيع', en: 'SIGNATURE NOTES', desc: 'نكهاتٌ كلاسيكية مؤلَّفة بعنايةٍ تعزف لحن بيانو الأصيل.' },
+        { num: 'II', shot: 'COLLECTION SHOT', ar: 'الإهداء الفاخر', en: 'GIFTING SUITE', desc: 'علبٌ أنيقة تجمع بين الفنّ والفخامة لمناسباتك الخاصة.' },
+        { num: 'III', shot: 'COLLECTION SHOT', ar: 'مناسبات مميزة', en: 'CELEBRATIONS', desc: 'تشكيلاتٌ للأعراس والمناسبات تصنع لحظاتٍ لا تُنسى.' },
+      ],
+      occasions: [
+        { ar: 'الأفراد', en: 'INDIVIDUALS', desc: 'لحظاتٌ حميمة تستحق نكهةً تليق بها.' },
+        { ar: 'الشركات', en: 'CORPORATE', desc: 'إهداءٌ مؤسسيّ راقٍ يترك انطباعاً يدوم.' },
+        { ar: 'الإهداء', en: 'GIFTING', desc: 'هديةٌ تعبّر عن التقدير بلغة العاطفة.' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
