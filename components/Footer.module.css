@@ -1,0 +1,109 @@
+.footer {
+  background: var(--burgundy);
+  color: var(--champagne);
+  padding: clamp(80px, 10vw, 130px) 24px 48px;
+}
+
+.inner {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  padding-bottom: 64px;
+  border-bottom: 1px solid rgba(221, 201, 164, 0.16);
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.brandPiano {
+  font-family: var(--font-cormorant);
+  font-size: 34px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+}
+
+.brandSweets {
+  font-family: var(--font-jost);
+  font-size: 10px;
+  letter-spacing: 0.5em;
+  opacity: 0.7;
+  padding-bottom: 4px;
+}
+
+.blurb {
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 2;
+  opacity: 0.66;
+  margin-top: 20px;
+  max-width: 320px;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.colTitle {
+  font-family: var(--font-jost);
+  font-size: 11px;
+  letter-spacing: 0.34em;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.colText {
+  font-weight: 300;
+  font-size: 15px;
+  opacity: 0.8;
+}
+
+.colTextLtr {
+  direction: ltr;
+  text-align: right;
+}
+
+.colLink {
+  font-weight: 300;
+  font-size: 15px;
+  opacity: 0.8;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.colLink:hover {
+  opacity: 1;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding-top: 28px;
+}
+
+.copyright {
+  font-family: var(--font-jost);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  opacity: 0.45;
+}
+
+.tagline {
+  font-family: var(--font-cormorant);
+  font-style: italic;
+  font-size: 16px;
+  opacity: 0.6;
+}

@@ -1,0 +1,159 @@
+.section {
+  position: relative;
+  background: var(--cream);
+  color: var(--burgundy);
+  padding: clamp(90px, 12vw, 160px) 24px;
+}
+
+.inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: start;
+}
+
+.eyebrow {
+  font-family: var(--font-jost);
+  font-size: 11px;
+  letter-spacing: 0.42em;
+  color: var(--gold-on-cream);
+}
+
+.title {
+  font-family: var(--font-tajawal);
+  font-weight: 300;
+  font-size: clamp(32px, 4.6vw, 52px);
+  margin-top: 16px;
+  line-height: 1.2;
+}
+
+.divider {
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  margin: 26px 0;
+}
+
+.intro {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 2;
+  color: var(--ink-on-cream);
+  max-width: 340px;
+  text-wrap: pretty;
+}
+
+.contact {
+  margin-top: 34px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.address {
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.phone {
+  font-family: var(--font-jost);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  direction: ltr;
+  text-align: right;
+  opacity: 0.7;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.input,
+.select,
+.textarea {
+  font-family: var(--font-tajawal);
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--burgundy);
+  background: #fff;
+  border: 1px solid var(--border-input);
+  padding: 15px 16px;
+  border-radius: 2px;
+  outline: none;
+}
+
+.select {
+  color: #5e3b36;
+  appearance: none;
+}
+
+.textarea {
+  resize: vertical;
+}
+
+.submit {
+  margin-top: 6px;
+  font-family: var(--font-jost);
+  font-size: 11px;
+  letter-spacing: 0.34em;
+  color: var(--cream);
+  background: var(--burgundy);
+  border: none;
+  padding: 17px 34px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.35s;
+}
+
+.submit:hover {
+  background: var(--deep-burgundy);
+}
+
+.thanks {
+  border: 1px solid var(--gold);
+  background: #fff;
+  padding: 48px 36px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.thanksTitle {
+  font-family: var(--font-tajawal);
+  font-weight: 500;
+  font-size: 24px;
+  margin-top: 6px;
+}
+
+.thanksBody {
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--ink-on-cream);
+  max-width: 300px;
+}
+
+.resend {
+  margin-top: 10px;
+  font-family: var(--font-jost);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  background: none;
+  border: none;
+  color: var(--gold-on-cream);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}

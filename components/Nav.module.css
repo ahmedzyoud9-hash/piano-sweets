@@ -1,0 +1,62 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 48px;
+  backdrop-filter: blur(10px);
+  background: linear-gradient(180deg, rgba(44, 21, 23, 0.72), rgba(44, 21, 23, 0));
+  transition: background 0.4s;
+}
+
+.nav.scrolled {
+  background: rgba(44, 21, 23, 0.86);
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--champagne);
+}
+
+.brandPiano {
+  font-family: var(--font-cormorant);
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+}
+
+.brandSweets {
+  font-family: var(--font-jost);
+  font-size: 9px;
+  letter-spacing: 0.5em;
+  opacity: 0.7;
+  padding-bottom: 3px;
+}
+
+.links {
+  display: flex;
+  gap: 34px;
+  align-items: center;
+}
+
+.link {
+  font-family: var(--font-tajawal);
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: var(--champagne);
+  text-decoration: none;
+  opacity: 0.78;
+  transition: opacity 0.3s;
+}
+
+.link:hover {
+  opacity: 1;
+}

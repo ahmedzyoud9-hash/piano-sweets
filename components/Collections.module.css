@@ -1,0 +1,115 @@
+.section {
+  position: relative;
+  background: var(--cream);
+  color: var(--burgundy);
+  padding: clamp(90px, 12vw, 160px) 24px;
+}
+
+.inner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.heading {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.eyebrow {
+  font-family: var(--font-jost);
+  font-size: 11px;
+  letter-spacing: 0.42em;
+  color: var(--gold-on-cream);
+}
+
+.title {
+  font-family: var(--font-tajawal);
+  font-weight: 300;
+  font-size: clamp(34px, 5vw, 58px);
+  margin-top: 16px;
+}
+
+.tagline {
+  font-family: var(--font-cormorant);
+  font-style: italic;
+  font-size: clamp(20px, 2.4vw, 26px);
+  color: #7a5249;
+  margin-top: 12px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.shot {
+  aspect-ratio: 4 / 5;
+  background: repeating-linear-gradient(
+    135deg,
+    var(--stripe-light-1),
+    var(--stripe-light-1) 14px,
+    var(--stripe-light-2) 14px,
+    var(--stripe-light-2) 28px
+  );
+  border: 1px solid var(--border-on-cream);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.5s;
+}
+
+.shot:hover {
+  transform: translateY(-6px);
+}
+
+.numeral {
+  position: absolute;
+  top: 20px;
+  right: 22px;
+  font-family: var(--font-cormorant);
+  font-size: 46px;
+  color: var(--gold);
+  opacity: 0.55;
+}
+
+.shotLabel {
+  font-family: var(--font-jost), monospace;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  color: #9a8156;
+  padding-bottom: 22px;
+}
+
+.cardTitle {
+  font-family: var(--font-tajawal);
+  font-weight: 500;
+  font-size: 22px;
+  margin-top: 20px;
+}
+
+.cardEn {
+  font-family: var(--font-jost);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--gold-on-cream);
+  margin-top: 6px;
+}
+
+.cardDesc {
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--ink-on-cream-soft);
+  margin-top: 10px;
+}

@@ -1,0 +1,87 @@
+.section {
+  position: relative;
+  background: var(--burgundy);
+  color: var(--champagne);
+  padding: clamp(90px, 12vw, 160px) 24px;
+}
+
+.inner {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.heading {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.eyebrow {
+  font-family: var(--font-jost);
+  font-size: 11px;
+  letter-spacing: 0.42em;
+  color: var(--gold);
+}
+
+.title {
+  font-family: var(--font-tajawal);
+  font-weight: 300;
+  font-size: clamp(34px, 5vw, 58px);
+  margin-top: 16px;
+}
+
+.subtitle {
+  font-weight: 200;
+  font-size: 16px;
+  opacity: 0.6;
+  margin-top: 14px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  border: 1px solid rgba(221, 201, 164, 0.2);
+  padding: 48px 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  transition: border-color 0.5s, background 0.5s;
+}
+
+.card:hover {
+  border-color: rgba(221, 201, 164, 0.45);
+  background: rgba(221, 201, 164, 0.04);
+}
+
+.motif {
+  margin-bottom: 6px;
+}
+
+.ar {
+  font-family: var(--font-tajawal);
+  font-weight: 500;
+  font-size: 23px;
+  color: var(--champagne-light);
+}
+
+.en {
+  font-family: var(--font-jost);
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  opacity: 0.5;
+}
+
+.desc {
+  font-weight: 300;
+  font-size: 14.5px;
+  line-height: 1.9;
+  opacity: 0.66;
+}
