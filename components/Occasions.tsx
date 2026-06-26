@@ -1,29 +1,37 @@
-import Motif from "./Motif";
 import Reveal from "./Reveal";
+import Icon from "./Icon";
 import styles from "./Occasions.module.css";
 
 const OCCASIONS = [
-  { ar: "الأفراد", en: "INDIVIDUALS", desc: "لحظاتٌ حميمة تستحق نكهةً تليق بها." },
-  { ar: "الشركات", en: "CORPORATE", desc: "إهداءٌ مؤسسيّ راقٍ يترك انطباعاً يدوم." },
-  { ar: "الإهداء", en: "GIFTING", desc: "هديةٌ تعبّر عن التقدير بلغة العاطفة." },
-];
+  { icon: "user", ar: "الأفراد", en: "INDIVIDUALS", desc: "دلّل نفسك أو أحبّتك بلحظة من الفخامة الخالصة." },
+  { icon: "building", ar: "الشركات", en: "CORPORATE", desc: "هدايا مؤسسية راقية تعكس ذوق علامتك وتقديرك." },
+  { icon: "gift", ar: "الإهداء", en: "GIFTING", desc: "علب مخصّصة لكل مناسبة، تترك أثرًا لا يُنسى." },
+] as const;
 
 export default function Occasions() {
   return (
-    <section id="occasions" className={styles.section}>
-      <div className={styles.inner}>
-        <Reveal className={styles.heading}>
-          <span className={styles.eyebrow}>OCCASIONS</span>
-          <h2 className={styles.title}>المناسبات</h2>
-          <p className={styles.subtitle}>تجربةٌ تبقى طويلاً بعد آخر نوتة</p>
-        </Reveal>
+    <section id="occasions" className={styles.occasions}>
+      <div className="container">
+        <div className={styles.head}>
+          <Reveal>
+            <p className="eyebrow">المناسبات</p>
+          </Reveal>
+          <Reveal delay={80}>
+            <h2 className={styles.title}>
+              لكل لحظة <span className="goldtext">نغمتها</span>
+            </h2>
+          </Reveal>
+        </div>
+
         <div className={`${styles.grid} grid3`}>
-          {OCCASIONS.map((o) => (
-            <Reveal key={o.en} className={styles.card}>
-              <Motif variant="small" style={{ marginBottom: 6 }} />
-              <h3 className={styles.ar}>{o.ar}</h3>
-              <span className={styles.en}>{o.en}</span>
-              <p className={styles.desc}>{o.desc}</p>
+          {OCCASIONS.map((o, i) => (
+            <Reveal key={o.en} variant="up" delay={i * 90} className={styles.card}>
+              <span className={styles.iconWrap}>
+                <Icon name={o.icon} size={28} />
+              </span>
+              <span className={styles.cardEn}>{o.en}</span>
+              <h3 className={styles.cardAr}>{o.ar}</h3>
+              <p className={styles.cardDesc}>{o.desc}</p>
             </Reveal>
           ))}
         </div>

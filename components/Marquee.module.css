@@ -1,0 +1,25 @@
+.wrap {
+  overflow: hidden;
+  border-block: 1px solid var(--line);
+  background: linear-gradient(var(--surface-1), var(--surface-0));
+  padding-block: 18px;
+  position: relative;
+  z-index: var(--z-raise);
+}
+.track {
+  display: flex;
+  gap: var(--s-6);
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+.wrap:hover .track { animation-play-state: paused; }
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-family: var(--font-ar);
+  font-size: 17px;
+  color: var(--c-champagne);
+  white-space: nowrap;
+}
+.icon { color: var(--c-gold); flex-shrink: 0; }
