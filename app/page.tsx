@@ -2,6 +2,7 @@ import Collections from "@/components/Collections";
 import Enquiry from "@/components/Enquiry";
 import Footer from "@/components/Footer";
 import Founder from "@/components/Founder";
+import Gallery from "@/components/Gallery";
 import Hero from "@/components/Hero";
 import Nav from "@/components/Nav";
 import Occasions from "@/components/Occasions";
@@ -18,6 +19,7 @@ export default function Home() {
       <Philosophy />
       <Founder />
       <Collections />
+      <Gallery />
       <Occasions />
       <Enquiry />
       <QuoteBanner />

@@ -107,3 +107,23 @@
   font-size: 16px;
   opacity: 0.6;
 }
+
+.bottomRight {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.adminLink {
+  font-family: var(--font-jost);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  opacity: 0.6;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.adminLink:hover {
+  opacity: 1;
+}

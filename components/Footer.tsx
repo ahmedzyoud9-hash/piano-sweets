@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Reveal from "./Reveal";
 import styles from "./Footer.module.css";
 
@@ -32,7 +33,12 @@ export default function Footer() {
         </div>
         <div className={styles.bottom}>
           <span className={styles.copyright}>© 2026 PIANO SWEETS · ALL RIGHTS RESERVED</span>
-          <span className={styles.tagline}>Crafted in harmony.</span>
+          <div className={styles.bottomRight}>
+            <Link href="/admin" className={styles.adminLink}>
+              لوحة الإدارة
+            </Link>
+            <span className={styles.tagline}>Crafted in harmony.</span>
+          </div>
         </div>
       </div>
     </footer>
