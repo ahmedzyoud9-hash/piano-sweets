@@ -151,6 +151,7 @@ const SCHEMA: Section[] = [
       { key: "intro", label: "النص التعريفي", type: "textarea" },
       { key: "address", label: "العنوان / الموقع", type: "text" },
       { key: "phone", label: "رقم الهاتف", type: "text" },
+      { key: "formAccessKey", label: "مفتاح استلام الطلبات (Web3Forms Access Key)", type: "text" },
     ],
   },
   {
@@ -173,6 +174,7 @@ const SCHEMA: Section[] = [
       { key: "social.instagram", label: "رابط إنستقرام", type: "text" },
       { key: "social.whatsapp", label: "واتساب (رقم مثل 96500000000 أو رابط)", type: "text" },
       { key: "social.phone", label: "رقم الاتصال (مثل +96500000000)", type: "text" },
+      { key: "social.email", label: "البريد الإلكتروني (أيقونة في الفوتر)", type: "text" },
       { key: "copyright", label: "حقوق النشر", type: "text" },
       { key: "tagline", label: "الشعار الختامي", type: "text" },
     ],
