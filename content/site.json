@@ -80,7 +80,8 @@
         "image": {
           "web": "https://raw.githubusercontent.com/ahmedzyoud9-hash/piano-sweets/main/public/products/uploads/1786314061458-wktmme.jpg",
           "mobile": ""
-        }
+        },
+        "enabled": true
       },
       {
         "num": "II",
@@ -90,7 +91,8 @@
         "image": {
           "web": "https://raw.githubusercontent.com/ahmedzyoud9-hash/piano-sweets/main/public/products/uploads/1786314296937-d4u4h6.jpg",
           "mobile": ""
-        }
+        },
+        "enabled": true
       },
       {
         "num": "III",
@@ -100,11 +102,13 @@
         "image": {
           "web": "https://raw.githubusercontent.com/ahmedzyoud9-hash/piano-sweets/main/public/products/uploads/1786314306524-x5cg8h.jpg",
           "mobile": ""
-        }
+        },
+        "enabled": true
       }
     ]
   },
   "gallery": {
+    "enabled": true,
     "eyebrow": "GALLERY",
     "title": "المعرض",
     "tagline": "أحدث إبداعاتنا."

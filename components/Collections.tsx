@@ -4,6 +4,10 @@ import { content, Picture } from "./siteContent";
 
 export default function Collections() {
   const c = content.collections;
+  const visible = c.items.filter((item) => item.enabled !== false);
+  if (visible.length === 0) return null;
+  const countClass = styles[`count${Math.min(visible.length, 3)}`];
+
   return (
     <section id="collections" className={styles.section}>
       <div className={styles.inner}>
@@ -12,8 +16,8 @@ export default function Collections() {
           <h2 className={styles.title}>{c.title}</h2>
           <p className={styles.tagline}>{c.tagline}</p>
         </Reveal>
-        <div className={`${styles.grid} grid3`}>
-          {c.items.map((item) => (
+        <div className={`${styles.grid} ${countClass}`}>
+          {visible.map((item) => (
             <Reveal key={item.num} className={styles.card}>
               <div className={styles.shot}>
                 <Picture image={item.image} alt={item.ar} className={styles.shotImg} />

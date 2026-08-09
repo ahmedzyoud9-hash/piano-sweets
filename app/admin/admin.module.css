@@ -356,6 +356,51 @@
   object-fit: cover;
 }
 
+.toggleField {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.switch {
+  position: relative;
+  width: 46px;
+  height: 26px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(74, 30, 34, 0.25);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s;
+  flex: 0 0 auto;
+}
+
+.switchOn {
+  background: var(--gold-on-cream, #a9854f);
+}
+
+.switchKnob {
+  position: absolute;
+  top: 3px;
+  inset-inline-start: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.3s;
+}
+
+.switchOn .switchKnob {
+  transform: translateX(-20px);
+}
+
+.switchState {
+  font-family: var(--font-tajawal);
+  font-size: 13px;
+  color: var(--ink-on-cream-soft, #7a5249);
+}
+
 .videoField {
   display: flex;
   flex-direction: column;

@@ -11,7 +11,7 @@ type ImgRec = { w: number; h: number };
 type Field = {
   key: string;
   label: string;
-  type: "text" | "textarea" | "image" | "media";
+  type: "text" | "textarea" | "image" | "media" | "toggle";
   rec?: ImgRec;
   recMobile?: ImgRec;
 };
@@ -99,6 +99,7 @@ const SCHEMA: Section[] = [
         label: "المجموعات",
         itemLabel: "مجموعة",
         fields: [
+          { key: "enabled", label: "إظهار هذه المجموعة", type: "toggle" },
           { key: "num", label: "الرقم الروماني", type: "text" },
           { key: "ar", label: "الاسم بالعربي", type: "text" },
           { key: "en", label: "الاسم بالإنجليزي", type: "text" },
@@ -113,6 +114,7 @@ const SCHEMA: Section[] = [
     title: "المعرض (Gallery)",
     note: "صور المعرض تُدار من قسم «صور المعرض» أسفل الصفحة.",
     fields: [
+      { key: "enabled", label: "إظهار قسم المعرض بالكامل", type: "toggle" },
       { key: "eyebrow", label: "العنوان الصغير (EN)", type: "text" },
       { key: "title", label: "العنوان", type: "text" },
       { key: "tagline", label: "السطر التعريفي", type: "text" },
@@ -502,6 +504,24 @@ export default function AdminPage() {
           ) : (
             <ImageSlot path={[...path, "image"]} field={field} />
           )}
+        </div>
+      );
+    }
+    if (field.type === "toggle") {
+      const on = getDeep(content, path) !== false;
+      return (
+        <div key={path.join(".")} className={styles.toggleField}>
+          <button
+            type="button"
+            role="switch"
+            aria-checked={on}
+            className={`${styles.switch}${on ? ` ${styles.switchOn}` : ""}`}
+            onClick={() => update(path, !on)}
+          >
+            <span className={styles.switchKnob} />
+          </button>
+          <span className={styles.fieldLabel}>{field.label}</span>
+          <span className={styles.switchState}>{on ? "ظاهر" : "مخفي"}</span>
         </div>
       );
     }
