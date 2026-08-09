@@ -4,11 +4,29 @@ import { content, lines, Picture } from "./siteContent";
 
 export default function Founder() {
   const c = content.founder;
+  const media = c.media;
+  const showVideo = media.type === "video" && media.video;
   return (
     <section id="founder" className={styles.section}>
       <div className={`${styles.inner} grid2`}>
         <Reveal className={styles.portrait}>
-          <Picture image={c.image} alt="مؤسّس بيانو" className={styles.portraitImg} />
+          {showVideo ? (
+            <video
+              className={styles.portraitImg}
+              src={media.video}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            />
+          ) : (
+            <Picture
+              image={media.image}
+              alt="مؤسّس بيانو"
+              className={styles.portraitImg}
+            />
+          )}
         </Reveal>
         <Reveal>
           <span className={styles.eyebrow}>{c.eyebrow}</span>

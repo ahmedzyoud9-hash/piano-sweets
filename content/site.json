@@ -26,7 +26,11 @@
     ]
   },
   "founder": {
-    "image": { "web": "/products/collection-3.jpg", "mobile": "" },
+    "media": {
+      "type": "image",
+      "image": { "web": "/products/collection-3.jpg", "mobile": "" },
+      "video": ""
+    },
     "eyebrow": "THE FOUNDER",
     "title": "شوكولاتييه\nوعازف بيانو",
     "body1": "آمن مؤسّس بيانو دائماً بأن جمال الموسيقى يكمن في الانسجام، حيث تتآلف كل نوتة مع الأخرى لتخلق عاطفةً وتجربةً لا تُنسى. ومن هذه الفلسفة وُلدت بيانو.",
