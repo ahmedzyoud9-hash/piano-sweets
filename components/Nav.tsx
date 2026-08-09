@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 import styles from "./Nav.module.css";
 
 const NAV_LINKS = [
-  { label: "قصتنا", href: "#story" },
-  { label: "الفلسفة", href: "#philosophy" },
-  { label: "المؤسس", href: "#founder" },
-  { label: "المجموعات", href: "#collections" },
-  { label: "اطلب", href: "#enquiry" },
-  { label: "تواصل", href: "#contact" },
+  { label: "Our Story", href: "#story" },
+  { label: "Philosophy", href: "#philosophy" },
+  { label: "Founder", href: "#founder" },
+  { label: "Collections", href: "#collections" },
+  { label: "Order", href: "#enquiry" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function Nav() {
@@ -33,7 +33,7 @@ export default function Nav() {
     >
       <a href="#top" onClick={goTop} className={styles.brand}>
         <span className={styles.brandPiano}>PIANO</span>
-        <span className={styles.brandSweets}>SWEETS</span>
+        <span className={styles.brandSweets}>CHOCOLATE</span>
       </a>
       <nav className={`${styles.links} navlinks`}>
         {NAV_LINKS.map((link) => (
