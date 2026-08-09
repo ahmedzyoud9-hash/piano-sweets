@@ -1,0 +1,80 @@
+{
+  "hero": {
+    "logo": { "web": "/piano-logo.jpeg", "mobile": "" },
+    "taglineEn": "Composed like music",
+    "taglineAr": "مؤلَّفة كالموسيقى",
+    "intro": "شوكولا فاخرة تتحوّل إلى تجربة عاطفية — حيث تُصاغ كل نكهة بتوازنٍ ودِفءٍ وأناقة، تماماً كما تُؤلَّف الموسيقى.",
+    "cta": "DISCOVER PIANO"
+  },
+  "story": {
+    "eyebrow": "OUR STORY",
+    "title": "قصة العلامة",
+    "body": "وُلدت بيانو لتحوّل الشوكولا إلى تجربةٍ عاطفية. فكما تُؤلَّف كل مقطوعةٍ موسيقية بعناية لتخلق توازناً وجمالاً، تُصنع كل قطعةٍ من بيانو باستخدام أجود الشوكولا الفرنسية ومكوّناتٍ مُنتقاة، لتمنحك لحظاتٍ من الأناقة والدفء والفخامة.",
+    "quote": "“At Piano, chocolate is more than a gift —\nit is a language of emotion and unforgettable memories.”"
+  },
+  "philosophy": {
+    "eyebrow": "BRAND DNA",
+    "title": "الفلسفة",
+    "subtitle": "انسجامٌ يجمع بين الفنّ والعاطفة والفخامة",
+    "values": [
+      { "ar": "الانسجام", "en": "HARMONY", "desc": "توازنٌ دقيق بين النكهات والقوام، كما تتآلف النوتات في مقطوعة." },
+      { "ar": "الرُقيّ", "en": "SOPHISTICATION", "desc": "لمسةٌ راقية في كل تفصيل، من المكوّن إلى التقديم." },
+      { "ar": "العاطفة", "en": "EMOTION", "desc": "لغةٌ من المشاعر والتقدير تتجاوز كونها مجرّد هدية." },
+      { "ar": "الحِرفية", "en": "CRAFTSMANSHIP", "desc": "صناعةٌ يدوية متقنة بأجود الشوكولا الفرنسية." },
+      { "ar": "الفخامة الفنية", "en": "ARTISTIC LUXURY", "desc": "فنٌّ وفخامة يجتمعان في تجربةٍ بصرية وحسية." },
+      { "ar": "التجربة الحسية", "en": "SENSORY EXPERIENCE", "desc": "لحظاتٌ تُعاش بكل الحواس وتبقى طويلاً في الذاكرة." }
+    ]
+  },
+  "founder": {
+    "image": { "web": "/products/collection-3.jpg", "mobile": "" },
+    "eyebrow": "THE FOUNDER",
+    "title": "شوكولاتييه\nوعازف بيانو",
+    "body1": "آمن مؤسّس بيانو دائماً بأن جمال الموسيقى يكمن في الانسجام، حيث تتآلف كل نوتة مع الأخرى لتخلق عاطفةً وتجربةً لا تُنسى. ومن هذه الفلسفة وُلدت بيانو.",
+    "body2": "فبمقاربته للشوكولا كما يقارب الموسيقيّ التأليف، يصوغ النكهات بتوازنٍ وعمقٍ وقوامٍ وأناقة، محوّلاً كل مجموعةٍ إلى تجربةٍ حسية مستوحاة من الموسيقى ذاتها."
+  },
+  "collections": {
+    "eyebrow": "COLLECTIONS",
+    "title": "المجموعات",
+    "tagline": "Every flavor plays a different note.",
+    "items": [
+      { "num": "I", "ar": "مجموعة التوقيع", "en": "SIGNATURE NOTES", "desc": "نكهاتٌ كلاسيكية مؤلَّفة بعنايةٍ تعزف لحن بيانو الأصيل.", "image": { "web": "/products/collection-1.jpg", "mobile": "" } },
+      { "num": "II", "ar": "الإهداء الفاخر", "en": "GIFTING SUITE", "desc": "علبٌ أنيقة تجمع بين الفنّ والفخامة لمناسباتك الخاصة.", "image": { "web": "/products/collection-2.jpg", "mobile": "" } },
+      { "num": "III", "ar": "مناسبات مميزة", "en": "CELEBRATIONS", "desc": "تشكيلاتٌ للأعراس والمناسبات تصنع لحظاتٍ لا تُنسى.", "image": { "web": "/products/collection-3.jpg", "mobile": "" } }
+    ]
+  },
+  "gallery": {
+    "eyebrow": "GALLERY",
+    "title": "المعرض",
+    "tagline": "أحدث إبداعاتنا."
+  },
+  "occasions": {
+    "eyebrow": "OCCASIONS",
+    "title": "المناسبات",
+    "subtitle": "تجربةٌ تبقى طويلاً بعد آخر نوتة",
+    "items": [
+      { "ar": "الأفراد", "en": "INDIVIDUALS", "desc": "لحظاتٌ حميمة تستحق نكهةً تليق بها." },
+      { "ar": "الشركات", "en": "CORPORATE", "desc": "إهداءٌ مؤسسيّ راقٍ يترك انطباعاً يدوم." },
+      { "ar": "الإهداء", "en": "GIFTING", "desc": "هديةٌ تعبّر عن التقدير بلغة العاطفة." }
+    ]
+  },
+  "enquiry": {
+    "eyebrow": "ENQUIRIES & ORDERS",
+    "title": "اطلب\nتجربتك الخاصة",
+    "intro": "لطلبات الأفراد، الإهداء، أو المناسبات والشركات — اترك تفاصيلك وسيتواصل معك فريق بيانو لتأليف تجربةٍ تليق باللحظة.",
+    "address": "مجمع الغوالي — الكويت",
+    "phone": "+965 0000 0000"
+  },
+  "quoteBanner": {
+    "quote": "Where emotion inspires creation.",
+    "translation": "حيث تُلهم العاطفة الإبداع"
+  },
+  "footer": {
+    "blurb": "شوكولا فاخرة مؤلَّفة كالموسيقى — من أجود الشوكولا الفرنسية، صُنعت لتُلهم وتُهدى وتبقى في الذاكرة.",
+    "visitTitle": "VISIT US",
+    "visitAr": "مجمع الغوالي — الكويت",
+    "visitEn": "Al Ghawali Complex, Kuwait",
+    "connectTitle": "CONNECT",
+    "copyright": "© 2026 PIANO SWEETS · ALL RIGHTS RESERVED",
+    "tagline": "Crafted in harmony."
+  }
+}

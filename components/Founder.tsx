@@ -1,36 +1,21 @@
 import Reveal from "./Reveal";
 import styles from "./Founder.module.css";
+import { content, lines, Picture } from "./siteContent";
 
 export default function Founder() {
+  const c = content.founder;
   return (
     <section id="founder" className={styles.section}>
       <div className={`${styles.inner} grid2`}>
         <Reveal className={styles.portrait}>
-          <img
-            src="/products/collection-3.jpg"
-            alt="مؤسّس بيانو"
-            className={styles.portraitImg}
-            loading="lazy"
-          />
+          <Picture image={c.image} alt="مؤسّس بيانو" className={styles.portraitImg} />
         </Reveal>
         <Reveal>
-          <span className={styles.eyebrow}>THE FOUNDER</span>
-          <h2 className={styles.title}>
-            شوكولاتييه
-            <br />
-            وعازف بيانو
-          </h2>
+          <span className={styles.eyebrow}>{c.eyebrow}</span>
+          <h2 className={styles.title}>{lines(c.title)}</h2>
           <div className={styles.divider} />
-          <p className={styles.body}>
-            آمن مؤسّس بيانو دائماً بأن جمال الموسيقى يكمن في الانسجام، حيث
-            تتآلف كل نوتة مع الأخرى لتخلق عاطفةً وتجربةً لا تُنسى. ومن هذه
-            الفلسفة وُلدت بيانو.
-          </p>
-          <p className={`${styles.body} ${styles.bodySpaced}`}>
-            فبمقاربته للشوكولا كما يقارب الموسيقيّ التأليف، يصوغ النكهات
-            بتوازنٍ وعمقٍ وقوامٍ وأناقة، محوّلاً كل مجموعةٍ إلى تجربةٍ حسية
-            مستوحاة من الموسيقى ذاتها.
-          </p>
+          <p className={styles.body}>{c.body1}</p>
+          <p className={`${styles.body} ${styles.bodySpaced}`}>{c.body2}</p>
         </Reveal>
       </div>
     </section>

@@ -1,29 +1,22 @@
 import Reveal from "./Reveal";
 import styles from "./Story.module.css";
+import { content, highlightBrand, lines } from "./siteContent";
 
 export default function Story() {
+  const c = content.story;
   return (
     <section id="story" className={styles.section}>
       <div className={styles.inner}>
         <Reveal className={styles.heading}>
-          <span className={styles.eyebrow}>OUR STORY</span>
-          <h2 className={styles.title}>قصة العلامة</h2>
+          <span className={styles.eyebrow}>{c.eyebrow}</span>
+          <h2 className={styles.title}>{c.title}</h2>
           <div className={styles.divider} />
         </Reveal>
         <Reveal>
-          <p className={styles.body}>
-            وُلدت <span className={styles.brandName}>بيانو</span> لتحوّل
-            الشوكولا إلى تجربةٍ عاطفية. فكما تُؤلَّف كل مقطوعةٍ موسيقية
-            بعناية لتخلق توازناً وجمالاً، تُصنع كل قطعةٍ من بيانو باستخدام
-            أجود الشوكولا الفرنسية ومكوّناتٍ مُنتقاة، لتمنحك لحظاتٍ من
-            الأناقة والدفء والفخامة.
-          </p>
+          <p className={styles.body}>{highlightBrand(c.body, styles.brandName)}</p>
         </Reveal>
         <Reveal>
-          <p className={styles.quote}>
-            “At Piano, chocolate is more than a gift —<br />
-            it is a language of emotion and unforgettable memories.”
-          </p>
+          <p className={styles.quote}>{lines(c.quote)}</p>
         </Reveal>
       </div>
     </section>
