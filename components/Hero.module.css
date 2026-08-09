@@ -82,7 +82,8 @@
   font-family: var(--font-tajawal);
   font-weight: 200;
   font-size: clamp(17px, 2vw, 21px);
-  letter-spacing: 0.32em;
+  letter-spacing: normal;
+  word-spacing: 0.25em;
   margin-top: 8px;
   opacity: 0.82;
 }
