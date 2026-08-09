@@ -14,6 +14,7 @@ const NAV_LINKS = [
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -21,8 +22,16 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   const goTop = (e: React.MouseEvent) => {
     e.preventDefault();
+    setMenuOpen(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -35,6 +44,7 @@ export default function Nav() {
         <span className={styles.brandSweets}>CHOCOLATE</span>
         <span className={styles.brandPiano}>PIANO</span>
       </a>
+
       <nav className={`${styles.links} navlinks`}>
         {NAV_LINKS.map((link) => (
           <a key={link.href} href={link.href} className={styles.link}>
@@ -42,6 +52,35 @@ export default function Nav() {
           </a>
         ))}
       </nav>
+
+      <button
+        type="button"
+        className={`${styles.burger}${menuOpen ? ` ${styles.burgerOpen}` : ""}`}
+        aria-label={menuOpen ? "Close menu" : "Open menu"}
+        aria-expanded={menuOpen}
+        onClick={() => setMenuOpen((v) => !v)}
+      >
+        <span />
+        <span />
+        <span />
+      </button>
+
+      <div
+        className={`${styles.mobileMenu}${menuOpen ? ` ${styles.mobileMenuOpen}` : ""}`}
+      >
+        <nav className={styles.mobileLinks}>
+          {NAV_LINKS.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className={styles.mobileLink}
+              onClick={() => setMenuOpen(false)}
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      </div>
     </header>
   );
 }
