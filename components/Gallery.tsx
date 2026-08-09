@@ -9,9 +9,11 @@ type GalleryImage = { url: string; pathname: string };
 
 export default function Gallery() {
   const c = content.gallery;
+  const enabled = (c as { enabled?: boolean }).enabled !== false;
   const [images, setImages] = useState<GalleryImage[]>([]);
 
   useEffect(() => {
+    if (!enabled) return;
     let active = true;
     fetch("/api/images", { cache: "no-store" })
       .then((res) => res.json())
@@ -22,10 +24,10 @@ export default function Gallery() {
     return () => {
       active = false;
     };
-  }, []);
+  }, [enabled]);
 
-  // Hide the whole section until there is something to show.
-  if (images.length === 0) return null;
+  // Hidden by the admin toggle, or until there is something to show.
+  if (!enabled || images.length === 0) return null;
 
   return (
     <section id="gallery" className={styles.section}>

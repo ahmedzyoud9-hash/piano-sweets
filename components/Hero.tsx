@@ -8,13 +8,6 @@ export default function Hero() {
   return (
     <section id="top" className={styles.hero}>
       <div className={styles.bg} />
-      <div className={styles.strings} aria-hidden="true">
-        <span className={styles.string} />
-        <span className={styles.string} />
-        <span className={styles.string} />
-        <span className={styles.string} />
-        <span className={styles.string} />
-      </div>
 
       <div className={styles.content}>
         <div className={styles.logoFloat}>
