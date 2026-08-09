@@ -32,8 +32,8 @@ export default function Nav() {
       className={`${styles.nav}${scrolled ? ` ${styles.scrolled}` : ""}`}
     >
       <a href="#top" onClick={goTop} className={styles.brand}>
-        <span className={styles.brandPiano}>PIANO</span>
         <span className={styles.brandSweets}>CHOCOLATE</span>
+        <span className={styles.brandPiano}>PIANO</span>
       </a>
       <nav className={`${styles.links} navlinks`}>
         {NAV_LINKS.map((link) => (
