@@ -74,8 +74,8 @@
     "items": [
       {
         "num": "I",
-        "ar": "مجموعة التوقيع",
-        "en": "SIGNATURE NOTES",
+        "ar": "شوكليت",
+        "en": "Chocolate",
         "desc": "نكهاتٌ كلاسيكية مؤلَّفة بعنايةٍ تعزف لحن بيانو الأصيل.",
         "image": {
           "web": "https://raw.githubusercontent.com/ahmedzyoud9-hash/piano-sweets/main/public/products/uploads/1786314061458-wktmme.jpg",
@@ -84,11 +84,11 @@
       },
       {
         "num": "II",
-        "ar": "الإهداء الفاخر",
-        "en": "GIFTING SUITE",
+        "ar": "موالح",
+        "en": "Salty",
         "desc": "علبٌ أنيقة تجمع بين الفنّ والفخامة لمناسباتك الخاصة.",
         "image": {
-          "web": "https://raw.githubusercontent.com/ahmedzyoud9-hash/piano-sweets/main/public/products/uploads/1786314296937-d4u4h6.jpg",
+          "web": "https://raw.githubusercontent.com/ahmedzyoud9-hash/piano-sweets/main/public/products/uploads/1786316266219-luwzrd.jpg",
           "mobile": ""
         }
       },
