@@ -460,9 +460,9 @@ export default function AdminPage() {
             ))}
           </div>
           {mediaType === "video" ? (
-            <div>
+            <div className={styles.videoField}>
               <span className={styles.recSize}>
-                الصق رابط يوتيوب أو Vimeo أو رابط MP4 مباشر
+                الصق رابط (يوتيوب · Vimeo · Streamable · MP4 مباشر) — بدون حدّ حجم
               </span>
               <input
                 className={styles.textInput}
@@ -470,6 +470,34 @@ export default function AdminPage() {
                 placeholder="https://youtu.be/..."
                 onChange={(e) => update([...path, "video"], e.target.value)}
               />
+              <div className={styles.videoOr}>— أو ارفع ملف فيديو (حتى 4MB) —</div>
+              <div className={styles.variantActions}>
+                <label className={styles.uploadBtn}>
+                  <input
+                    type="file"
+                    accept="video/*"
+                    hidden
+                    disabled={busySlot === [...path, "video"].join(".")}
+                    onChange={(e) => {
+                      const f = e.target.files?.[0];
+                      if (f) uploadTo([...path, "video"], f);
+                      e.target.value = "";
+                    }}
+                  />
+                  {busySlot === [...path, "video"].join(".")
+                    ? "جارٍ الرفع…"
+                    : "رفع ملف فيديو"}
+                </label>
+                {videoUrl && (
+                  <button
+                    type="button"
+                    className={styles.clearBtn}
+                    onClick={() => update([...path, "video"], "")}
+                  >
+                    إزالة
+                  </button>
+                )}
+              </div>
             </div>
           ) : (
             <ImageSlot path={[...path, "image"]} field={field} />

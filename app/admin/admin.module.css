@@ -356,6 +356,20 @@
   object-fit: cover;
 }
 
+.videoField {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.videoOr {
+  font-family: var(--font-tajawal);
+  font-size: 12px;
+  color: var(--ink-on-cream-soft, #7a5249);
+  text-align: center;
+  margin: 2px 0;
+}
+
 .mediaToggle {
   display: inline-flex;
   gap: 0;

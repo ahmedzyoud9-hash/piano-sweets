@@ -18,6 +18,10 @@ function resolveVideo(url: string): { kind: "iframe" | "file"; src: string } {
   if (vimeo) {
     return { kind: "iframe", src: `https://player.vimeo.com/video/${vimeo[1]}` };
   }
+  const streamable = url.match(/streamable\.com\/(?:e\/)?([\w-]+)/);
+  if (streamable) {
+    return { kind: "iframe", src: `https://streamable.com/e/${streamable[1]}` };
+  }
   return { kind: "file", src: url };
 }
 
