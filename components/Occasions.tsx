@@ -14,14 +14,29 @@ export default function Occasions() {
           <p className={styles.subtitle}>{c.subtitle}</p>
         </Reveal>
         <div className={`${styles.grid} grid3`}>
-          {c.items.map((o) => (
-            <Reveal key={o.en} className={styles.card}>
-              <Motif variant="small" style={{ marginBottom: 6 }} />
-              <h3 className={styles.ar}>{o.ar}</h3>
-              <span className={styles.en}>{o.en}</span>
-              <p className={styles.desc}>{o.desc}</p>
-            </Reveal>
-          ))}
+          {c.items.map((o) => {
+            const link = o.link || "";
+            const external = /^https?:\/\//.test(link);
+            return (
+              <Reveal
+                key={o.en}
+                className={`${styles.card}${link ? ` ${styles.cardClickable}` : ""}`}
+              >
+                <Motif variant="small" style={{ marginBottom: 6 }} />
+                <h3 className={styles.ar}>{o.ar}</h3>
+                <span className={styles.en}>{o.en}</span>
+                <p className={styles.desc}>{o.desc}</p>
+                {link ? (
+                  <a
+                    href={link}
+                    className={styles.cardLink}
+                    aria-label={o.ar}
+                    {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
+                  />
+                ) : null}
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -2,6 +2,9 @@ import Reveal from "./Reveal";
 import styles from "./Philosophy.module.css";
 import { content } from "./siteContent";
 
+// A distinct musical glyph per value so the cards don't all repeat one note.
+const NOTES = ["♩", "♪", "♫", "♬", "♭", "♮"];
+
 export default function Philosophy() {
   const c = content.philosophy;
   return (
@@ -15,7 +18,7 @@ export default function Philosophy() {
         <div className={`${styles.grid} grid3`}>
           {c.values.map((v, i) => (
             <Reveal key={v.en} className={styles.cell} delay={(i % 3) * 0.09}>
-              <span className={styles.note}>♪</span>
+              <span className={styles.note}>{NOTES[i % NOTES.length]}</span>
               <h3 className={styles.ar}>{v.ar}</h3>
               <span className={styles.en}>{v.en}</span>
               <p className={styles.desc}>{v.desc}</p>

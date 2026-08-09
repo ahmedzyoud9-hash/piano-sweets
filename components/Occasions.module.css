@@ -46,6 +46,7 @@
 }
 
 .card {
+  position: relative;
   border: 1px solid rgba(221, 201, 164, 0.2);
   padding: 48px 32px;
   text-align: center;
@@ -53,12 +54,28 @@
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  transition: border-color 0.5s, background 0.5s;
+  transition: border-color 0.5s, background 0.5s, transform 0.5s;
 }
 
 .card:hover {
   border-color: rgba(221, 201, 164, 0.45);
   background: rgba(221, 201, 164, 0.04);
+}
+
+.cardClickable {
+  cursor: pointer;
+}
+
+.cardClickable:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold, #c9a24b);
+}
+
+/* Full-card click target overlaid above the content. */
+.cardLink {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
 }
 
 .motif {

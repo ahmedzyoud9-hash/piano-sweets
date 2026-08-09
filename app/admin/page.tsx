@@ -39,7 +39,8 @@ const SCHEMA: Section[] = [
       { key: "taglineEn", label: "السطر بالإنجليزي", type: "text" },
       { key: "taglineAr", label: "السطر بالعربي", type: "text" },
       { key: "intro", label: "النص التعريفي", type: "textarea" },
-      { key: "cta", label: "زر الاكتشاف", type: "text" },
+      { key: "cta", label: "نص زر الاكتشاف", type: "text" },
+      { key: "ctaLink", label: "رابط زر الاكتشاف (فارغ = ينزل لقسم القصة)", type: "text" },
     ],
   },
   {
@@ -134,6 +135,7 @@ const SCHEMA: Section[] = [
           { key: "ar", label: "بالعربي", type: "text" },
           { key: "en", label: "بالإنجليزي", type: "text" },
           { key: "desc", label: "الوصف", type: "textarea" },
+          { key: "link", label: "الرابط عند الضغط (اختياري)", type: "text" },
         ],
       },
     ],
@@ -166,6 +168,9 @@ const SCHEMA: Section[] = [
       { key: "visitAr", label: "الموقع بالعربي", type: "text" },
       { key: "visitEn", label: "الموقع بالإنجليزي", type: "text" },
       { key: "connectTitle", label: "عنوان «تواصل» (EN)", type: "text" },
+      { key: "social.instagram", label: "رابط إنستقرام", type: "text" },
+      { key: "social.whatsapp", label: "واتساب (رقم مثل 96500000000 أو رابط)", type: "text" },
+      { key: "social.phone", label: "رقم الاتصال (مثل +96500000000)", type: "text" },
       { key: "copyright", label: "حقوق النشر", type: "text" },
       { key: "tagline", label: "الشعار الختامي", type: "text" },
     ],
@@ -202,7 +207,14 @@ async function resizeImage(file: File, maxDim = 1600, quality = 0.85): Promise<F
 function setDeep(obj: any, path: (string | number)[], value: any): any {
   const next = structuredClone(obj);
   let cur = next;
-  for (let i = 0; i < path.length - 1; i++) cur = cur[path[i]];
+  for (let i = 0; i < path.length - 1; i++) {
+    const key = path[i];
+    if (cur[key] == null || typeof cur[key] !== "object") {
+      // Create the missing container (array if the next key is an index).
+      cur[key] = typeof path[i + 1] === "number" ? [] : {};
+    }
+    cur = cur[key];
+  }
   cur[path[path.length - 1]] = value;
   return next;
 }
@@ -585,7 +597,9 @@ export default function AdminPage() {
               <section key={section.key} className={styles.block}>
                 <h2 className={styles.subhead}>{section.title}</h2>
                 {section.note && <p className={styles.blockNote}>{section.note}</p>}
-                {section.fields?.map((f) => renderField(f, [section.key, f.key]))}
+                {section.fields?.map((f) =>
+                  renderField(f, [section.key, ...f.key.split(".")])
+                )}
                 {section.arrays?.map((arr) => (
                   <div key={arr.key} className={styles.arrayBlock}>
                     <h3 className={styles.arrayTitle}>{arr.label}</h3>
