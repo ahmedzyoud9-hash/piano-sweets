@@ -4,11 +4,12 @@
     "taglineEn": "Composed like music",
     "taglineAr": "مؤلَّفة كالموسيقى",
     "intro": "شوكولا فاخرة تتحوّل إلى تجربة عاطفية — حيث تُصاغ كل نكهة بتوازنٍ ودِفءٍ وأناقة، تماماً كما تُؤلَّف الموسيقى.",
-    "cta": "DISCOVER PIANO"
+    "cta": "DISCOVER PIANO",
+    "ctaLink": "#story"
   },
   "story": {
     "eyebrow": "OUR STORY",
-    "title": "قصة العلامة",
+    "title": "قصتنا",
     "body": "وُلدت بيانو لتحوّل الشوكولا إلى تجربةٍ عاطفية. فكما تُؤلَّف كل مقطوعةٍ موسيقية بعناية لتخلق توازناً وجمالاً، تُصنع كل قطعةٍ من بيانو باستخدام أجود الشوكولا الفرنسية ومكوّناتٍ مُنتقاة، لتمنحك لحظاتٍ من الأناقة والدفء والفخامة.",
     "quote": "“At Piano, chocolate is more than a gift —\nit is a language of emotion and unforgettable memories.”"
   },
@@ -56,9 +57,9 @@
     "title": "المناسبات",
     "subtitle": "تجربةٌ تبقى طويلاً بعد آخر نوتة",
     "items": [
-      { "ar": "الأفراد", "en": "INDIVIDUALS", "desc": "لحظاتٌ حميمة تستحق نكهةً تليق بها." },
-      { "ar": "الشركات", "en": "CORPORATE", "desc": "إهداءٌ مؤسسيّ راقٍ يترك انطباعاً يدوم." },
-      { "ar": "الإهداء", "en": "GIFTING", "desc": "هديةٌ تعبّر عن التقدير بلغة العاطفة." }
+      { "ar": "الأفراد", "en": "INDIVIDUALS", "desc": "لحظاتٌ حميمة تستحق نكهةً تليق بها.", "link": "" },
+      { "ar": "الشركات", "en": "CORPORATE", "desc": "إهداءٌ مؤسسيّ راقٍ يترك انطباعاً يدوم.", "link": "" },
+      { "ar": "الإهداء", "en": "GIFTING", "desc": "هديةٌ تعبّر عن التقدير بلغة العاطفة.", "link": "" }
     ]
   },
   "enquiry": {
@@ -78,6 +79,11 @@
     "visitAr": "مجمع الغوالي — الكويت",
     "visitEn": "Al Ghawali Complex, Kuwait",
     "connectTitle": "CONNECT",
+    "social": {
+      "instagram": "",
+      "whatsapp": "",
+      "phone": ""
+    },
     "copyright": "© 2026 PIANO SWEETS · ALL RIGHTS RESERVED",
     "tagline": "Crafted in harmony."
   }
