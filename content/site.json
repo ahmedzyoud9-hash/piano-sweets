@@ -88,7 +88,7 @@
         "en": "GIFTING SUITE",
         "desc": "علبٌ أنيقة تجمع بين الفنّ والفخامة لمناسباتك الخاصة.",
         "image": {
-          "web": "/products/collection-2.jpg",
+          "web": "https://raw.githubusercontent.com/ahmedzyoud9-hash/piano-sweets/main/public/products/uploads/1786314296937-d4u4h6.jpg",
           "mobile": ""
         }
       },
@@ -98,7 +98,7 @@
         "en": "CELEBRATIONS",
         "desc": "تشكيلاتٌ للأعراس والمناسبات تصنع لحظاتٍ لا تُنسى.",
         "image": {
-          "web": "/products/collection-3.jpg",
+          "web": "https://raw.githubusercontent.com/ahmedzyoud9-hash/piano-sweets/main/public/products/uploads/1786314306524-x5cg8h.jpg",
           "mobile": ""
         }
       }
