@@ -99,11 +99,13 @@
 .cta {
   margin-top: 42px;
   font-family: var(--font-jost);
-  font-size: 11px;
-  letter-spacing: 0.34em;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
   color: var(--burgundy);
   background: var(--champagne);
-  padding: 15px 34px;
+  padding: 16px 38px;
   text-decoration: none;
   border-radius: 2px;
   transition: transform 0.35s, background 0.35s;
