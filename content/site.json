@@ -55,7 +55,7 @@
   },
   "founder": {
     "media": {
-      "type": "image",
+      "type": "video",
       "image": {
         "web": "/products/collection-3.jpg",
         "mobile": ""
@@ -118,19 +118,19 @@
         "ar": "الأفراد",
         "en": "INDIVIDUALS",
         "desc": "لحظاتٌ حميمة تستحق نكهةً تليق بها.",
-        "link": ""
+        "link": "https://www.pianokw.com/"
       },
       {
         "ar": "الشركات",
         "en": "CORPORATE",
         "desc": "إهداءٌ مؤسسيّ راقٍ يترك انطباعاً يدوم.",
-        "link": ""
+        "link": "https://www.pianokw.com/"
       },
       {
         "ar": "الإهداء",
         "en": "GIFTING",
         "desc": "هديةٌ تعبّر عن التقدير بلغة العاطفة.",
-        "link": ""
+        "link": "https://www.pianokw.com/"
       }
     ]
   },
