@@ -31,6 +31,45 @@
   border: 0;
 }
 
+/* Video sizing — fits the video instead of the 4:5 portrait crop. */
+.mediaCol {
+  width: 100%;
+}
+
+/* Embedded players (YouTube/Vimeo/Streamable): responsive 16:9. */
+.videoBoxIframe {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid rgba(221, 201, 164, 0.28);
+  overflow: hidden;
+  background: #000;
+}
+
+.videoIframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 0;
+}
+
+/* Direct video files: keep the file's own aspect ratio (no crop). */
+.videoBoxFile {
+  width: 100%;
+  border: 1px solid rgba(221, 201, 164, 0.28);
+  overflow: hidden;
+  background: #000;
+  line-height: 0;
+}
+
+.videoFile {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .eyebrow {
   font-family: var(--font-jost);
   font-size: 11px;
