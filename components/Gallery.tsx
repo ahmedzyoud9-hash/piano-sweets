@@ -3,10 +3,12 @@
 import { useEffect, useState } from "react";
 import Reveal from "./Reveal";
 import styles from "./Gallery.module.css";
+import { content } from "./siteContent";
 
 type GalleryImage = { url: string; pathname: string };
 
 export default function Gallery() {
+  const c = content.gallery;
   const [images, setImages] = useState<GalleryImage[]>([]);
 
   useEffect(() => {
@@ -29,15 +31,15 @@ export default function Gallery() {
     <section id="gallery" className={styles.section}>
       <div className={styles.inner}>
         <Reveal className={styles.heading}>
-          <span className={styles.eyebrow}>GALLERY</span>
-          <h2 className={styles.title}>المعرض</h2>
-          <p className={styles.tagline}>أحدث إبداعاتنا.</p>
+          <span className={styles.eyebrow}>{c.eyebrow}</span>
+          <h2 className={styles.title}>{c.title}</h2>
+          <p className={styles.tagline}>{c.tagline}</p>
         </Reveal>
         <div className={styles.grid}>
           {images.map((img) => (
             <Reveal key={img.pathname} className={styles.item}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={img.url} alt="Piano Sweets" loading="lazy" />
+              <img src={img.url} alt="Piano Chocolate" loading="lazy" />
             </Reveal>
           ))}
         </div>

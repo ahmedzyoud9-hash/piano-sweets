@@ -1,6 +1,8 @@
 import styles from "./Hero.module.css";
+import { content, Picture } from "./siteContent";
 
 export default function Hero() {
+  const c = content.hero;
   return (
     <section id="top" className={styles.hero}>
       <div className={styles.bg} />
@@ -14,18 +16,19 @@ export default function Hero() {
 
       <div className={styles.content}>
         <div className={styles.logoFloat}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/piano-logo.jpeg" alt="Piano Sweets" className={styles.logo} />
+          <Picture
+            image={c.logo}
+            alt="Piano Chocolate"
+            className={styles.logo}
+            loading="eager"
+          />
         </div>
         <div className={styles.divider} />
-        <p className={styles.taglineEn}>Composed like music</p>
-        <p className={styles.taglineAr}>مؤلَّفة كالموسيقى</p>
-        <p className={styles.intro}>
-          شوكولا فاخرة تتحوّل إلى تجربة عاطفية — حيث تُصاغ كل نكهة بتوازنٍ ودِفءٍ
-          وأناقة، تماماً كما تُؤلَّف الموسيقى.
-        </p>
+        <p className={styles.taglineEn}>{c.taglineEn}</p>
+        <p className={styles.taglineAr}>{c.taglineAr}</p>
+        <p className={styles.intro}>{c.intro}</p>
         <a href="#story" className={styles.cta}>
-          DISCOVER PIANO
+          {c.cta}
         </a>
       </div>
     </section>

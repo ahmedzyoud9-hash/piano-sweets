@@ -4,8 +4,10 @@ import { useState } from "react";
 import Motif from "./Motif";
 import Reveal from "./Reveal";
 import styles from "./Enquiry.module.css";
+import { content, lines } from "./siteContent";
 
 export default function Enquiry() {
+  const c = content.enquiry;
   const [sent, setSent] = useState(false);
 
   const submit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -17,20 +19,13 @@ export default function Enquiry() {
     <section id="enquiry" className={styles.section}>
       <div className={`${styles.inner} formgrid`}>
         <Reveal>
-          <span className={styles.eyebrow}>ENQUIRIES &amp; ORDERS</span>
-          <h2 className={styles.title}>
-            اطلب
-            <br />
-            تجربتك الخاصة
-          </h2>
+          <span className={styles.eyebrow}>{c.eyebrow}</span>
+          <h2 className={styles.title}>{lines(c.title)}</h2>
           <div className={styles.divider} />
-          <p className={styles.intro}>
-            لطلبات الأفراد، الإهداء، أو المناسبات والشركات — اترك تفاصيلك
-            وسيتواصل معك فريق بيانو لتأليف تجربةٍ تليق باللحظة.
-          </p>
+          <p className={styles.intro}>{c.intro}</p>
           <div className={styles.contact}>
-            <span className={styles.address}>مجمع الغوالي — الكويت</span>
-            <span className={styles.phone}>+965 0000 0000</span>
+            <span className={styles.address}>{c.address}</span>
+            <span className={styles.phone}>{c.phone}</span>
           </div>
         </Reveal>
 
