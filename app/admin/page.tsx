@@ -438,62 +438,10 @@ export default function AdminPage() {
     );
   }
 
-  function VideoSlot({ path }: { path: (string | number)[] }) {
-    const url = (getDeep(content, path) as string) ?? "";
-    const slotKey = path.join(".");
-    return (
-      <div className={styles.variant}>
-        <div className={styles.variantHead}>
-          <span className={styles.variantLabel}>ملف الفيديو</span>
-          <span className={styles.recSize}>
-            MP4 عمودي (نسبة 4:5) — مقطع قصير ومضغوط، حتى 4MB تقريباً
-          </span>
-        </div>
-        <div className={styles.variantBody}>
-          <div className={styles.preview}>
-            {url ? (
-              <video src={url} muted playsInline />
-            ) : (
-              <span className={styles.previewEmpty}>لا فيديو</span>
-            )}
-          </div>
-          <div className={styles.variantActions}>
-            <label className={styles.uploadBtn}>
-              <input
-                type="file"
-                accept="video/*"
-                hidden
-                disabled={busySlot === slotKey}
-                onChange={(e) => {
-                  const f = e.target.files?.[0];
-                  if (f) uploadTo(path, f);
-                  e.target.value = "";
-                }}
-              />
-              {busySlot === slotKey
-                ? "جارٍ الرفع…"
-                : url
-                ? "استبدال الفيديو"
-                : "رفع فيديو"}
-            </label>
-            {url && (
-              <button
-                type="button"
-                className={styles.clearBtn}
-                onClick={() => update(path, "")}
-              >
-                إزالة
-              </button>
-            )}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   function renderField(field: Field, path: (string | number)[]) {
     if (field.type === "media") {
       const mediaType = (getDeep(content, [...path, "type"]) as string) ?? "image";
+      const videoUrl = (getDeep(content, [...path, "video"]) as string) ?? "";
       return (
         <div key={path.join(".")} className={styles.field}>
           <label className={styles.fieldLabel}>{field.label}</label>
@@ -512,7 +460,17 @@ export default function AdminPage() {
             ))}
           </div>
           {mediaType === "video" ? (
-            <VideoSlot path={[...path, "video"]} />
+            <div>
+              <span className={styles.recSize}>
+                الصق رابط يوتيوب أو Vimeo أو رابط MP4 مباشر
+              </span>
+              <input
+                className={styles.textInput}
+                value={videoUrl}
+                placeholder="https://youtu.be/..."
+                onChange={(e) => update([...path, "video"], e.target.value)}
+              />
+            </div>
           ) : (
             <ImageSlot path={[...path, "image"]} field={field} />
           )}
