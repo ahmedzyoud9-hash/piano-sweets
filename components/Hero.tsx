@@ -3,6 +3,8 @@ import { content, Picture } from "./siteContent";
 
 export default function Hero() {
   const c = content.hero;
+  const ctaLink = c.ctaLink || "#story";
+  const external = /^https?:\/\//.test(ctaLink);
   return (
     <section id="top" className={styles.hero}>
       <div className={styles.bg} />
@@ -27,7 +29,11 @@ export default function Hero() {
         <p className={styles.taglineEn}>{c.taglineEn}</p>
         <p className={styles.taglineAr}>{c.taglineAr}</p>
         <p className={styles.intro}>{c.intro}</p>
-        <a href="#story" className={styles.cta}>
+        <a
+          href={ctaLink}
+          className={styles.cta}
+          {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
+        >
           {c.cta}
         </a>
       </div>
