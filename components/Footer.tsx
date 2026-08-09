@@ -4,10 +4,14 @@ import styles from "./Footer.module.css";
 import { content } from "./siteContent";
 
 // Normalises an editable social value into a usable href.
-function normalize(kind: "instagram" | "whatsapp" | "phone", value: string) {
+function normalize(
+  kind: "instagram" | "whatsapp" | "phone" | "email",
+  value: string
+) {
   const v = value.trim();
   if (!v) return "";
   if (kind === "phone") return `tel:${v.replace(/\s+/g, "")}`;
+  if (kind === "email") return `mailto:${v}`;
   if (/^https?:\/\//.test(v)) return v;
   if (kind === "whatsapp") return `https://wa.me/${v.replace(/[^\d]/g, "")}`;
   // instagram handle without url
@@ -24,13 +28,21 @@ const ICONS = {
   phone: (
     <path d="M6.6 2.9c.3 0 .6.2.7.5l1.4 3.2c.1.3.06.6-.13.85l-1.3 1.6c.9 1.9 2.4 3.4 4.3 4.3l1.6-1.3c.25-.2.55-.24.85-.13l3.2 1.4c.3.13.5.42.5.72v3.3c0 .55-.45 1-1 1C10.3 22 2 13.7 2 3.9c0-.55.45-1 1-1h3.6Z" />
   ),
+  email: (
+    <path d="M3 5h18c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1H3c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1Zm9 7.1 8-4.9V6.4l-8 4.9-8-4.9v.8l8 4.9Z" />
+  ),
 };
 
 export default function Footer() {
   const c = content.footer;
-  const social = c.social ?? { instagram: "", whatsapp: "", phone: "" };
+  const social = (c.social ?? {}) as {
+    instagram?: string;
+    whatsapp?: string;
+    phone?: string;
+    email?: string;
+  };
   const socialLinks = (
-    ["instagram", "whatsapp", "phone"] as const
+    ["instagram", "whatsapp", "phone", "email"] as const
   )
     .map((kind) => ({ kind, href: normalize(kind, social[kind] || "") }))
     .filter((s) => s.href);

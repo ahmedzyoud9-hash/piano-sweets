@@ -55,11 +55,20 @@
 }
 
 .logo {
-  width: min(440px, 76vw);
+  width: min(440px, 82vw);
   height: auto;
   display: block;
-  border-radius: 16px;
+  border-radius: 18px;
   box-shadow: 0 26px 70px rgba(0, 0, 0, 0.4);
+}
+
+/* Desktop: size to the image's own proportions, capped so it stays balanced. */
+@media (min-width: 761px) {
+  .logo {
+    width: auto;
+    max-width: min(540px, 46vw);
+    max-height: 68vh;
+  }
 }
 
 .divider {

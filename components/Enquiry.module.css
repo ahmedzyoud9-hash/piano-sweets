@@ -101,6 +101,17 @@
   resize: vertical;
 }
 
+.formError {
+  font-family: var(--font-tajawal);
+  font-size: 14px;
+  color: #c0392b;
+}
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .submit {
   margin-top: 6px;
   font-family: var(--font-jost);

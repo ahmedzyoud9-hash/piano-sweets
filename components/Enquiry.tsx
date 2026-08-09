@@ -8,11 +8,43 @@ import { content, lines } from "./siteContent";
 
 export default function Enquiry() {
   const c = content.enquiry;
+  const accessKey = (c as { formAccessKey?: string }).formAccessKey || "";
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
-  const submit = (e: React.FormEvent<HTMLFormElement>) => {
+  const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSent(true);
+    setError("");
+
+    // No delivery key configured yet — acknowledge without sending.
+    if (!accessKey) {
+      setSent(true);
+      return;
+    }
+
+    const form = e.currentTarget;
+    setSending(true);
+    try {
+      const data = new FormData(form);
+      data.append("access_key", accessKey);
+      data.append("subject", "طلب جديد من موقع بيانو 🎹");
+      data.append("from_name", "Piano Website");
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: data,
+      });
+      const json = await res.json();
+      if (json.success) {
+        setSent(true);
+      } else {
+        setError("تعذّر إرسال الطلب. حاول مرة أخرى.");
+      }
+    } catch {
+      setError("تعذّر الإرسال — تأكّد من الاتصال وحاول مجدداً.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -50,16 +82,29 @@ export default function Enquiry() {
               <div className={`${styles.row} formgrid`}>
                 <input
                   required
+                  name="الاسم"
                   placeholder="الاسم"
                   className={`${styles.input} pn-input`}
                 />
                 <input
                   required
+                  name="رقم التواصل"
                   placeholder="رقم التواصل"
                   className={`${styles.input} pn-input`}
                 />
               </div>
-              <select className={`${styles.select} pn-input`} defaultValue="أفراد">
+              <input
+                required
+                type="email"
+                name="البريد الإلكتروني"
+                placeholder="البريد الإلكتروني"
+                className={`${styles.input} pn-input`}
+              />
+              <select
+                name="نوع الطلب"
+                className={`${styles.select} pn-input`}
+                defaultValue="أفراد"
+              >
                 <option value="أفراد">نوع الطلب — أفراد</option>
                 <option value="إهداء فاخر">إهداء فاخر</option>
                 <option value="مناسبة / عُرس">مناسبة / عُرس</option>
@@ -67,11 +112,13 @@ export default function Enquiry() {
               </select>
               <textarea
                 rows={4}
+                name="التفاصيل"
                 placeholder="تفاصيل طلبك أو مناسبتك"
                 className={`${styles.textarea} pn-input`}
               />
-              <button type="submit" className={styles.submit}>
-                SEND ENQUIRY
+              {error && <p className={styles.formError}>{error}</p>}
+              <button type="submit" className={styles.submit} disabled={sending}>
+                {sending ? "جارٍ الإرسال…" : "SEND ENQUIRY"}
               </button>
             </form>
           )}
