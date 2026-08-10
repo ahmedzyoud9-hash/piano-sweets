@@ -127,7 +127,10 @@
         "desc": "لحظاتٌ حميمة تستحق نكهةً تليق بها.",
         "link": "https://www.pianokw.com/",
         "enabled": true,
-        "image": { "web": "", "mobile": "" }
+        "image": {
+          "web": "https://raw.githubusercontent.com/ahmedzyoud9-hash/piano-sweets/main/public/products/uploads/1786357165227-yecx3i.jpg",
+          "mobile": ""
+        }
       },
       {
         "ar": "الشركات",
@@ -135,15 +138,21 @@
         "desc": "إهداءٌ مؤسسيّ راقٍ يترك انطباعاً يدوم.",
         "link": "https://www.pianokw.com/",
         "enabled": true,
-        "image": { "web": "", "mobile": "" }
+        "image": {
+          "web": "https://raw.githubusercontent.com/ahmedzyoud9-hash/piano-sweets/main/public/products/uploads/1786357177339-0zhopl.jpg",
+          "mobile": ""
+        }
       },
       {
         "ar": "الإهداء",
         "en": "GIFTING",
         "desc": "هديةٌ تعبّر عن التقدير بلغة العاطفة.",
         "link": "https://www.pianokw.com/",
-        "enabled": true,
-        "image": { "web": "", "mobile": "" }
+        "enabled": false,
+        "image": {
+          "web": "",
+          "mobile": ""
+        }
       }
     ]
   },
@@ -164,7 +173,6 @@
     "visitTitle": "VISIT US",
     "visitAr": "مجمع الغوالي — الكويت",
     "visitEn": "Al Ghawali Complex, Kuwait",
-    "visitLink": "",
     "connectTitle": "CONNECT",
     "social": {
       "instagram": "https://www.instagram.com/pianochocolatekw?igsh=MTNsNjZ6MzJwZGt4cQ==",
