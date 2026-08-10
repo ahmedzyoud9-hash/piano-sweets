@@ -4,6 +4,7 @@ import { content } from "./siteContent";
 export default function Hero() {
   const c = content.hero;
   const img = c.logo?.web || "";
+  const mark = (c as { mark?: { web?: string } }).mark?.web || "";
   const ctaLink = c.ctaLink || "#story";
   const external = /^https?:\/\//.test(ctaLink);
 
@@ -33,9 +34,16 @@ export default function Hero() {
         </a>
       </div>
 
-      <a href="#story" className={styles.scrollCue} aria-label="اكتشف المزيد">
-        <span className={styles.scrollLine} />
-      </a>
+      {mark ? (
+        <a href="#story" className={styles.markLink} aria-label="اكتشف المزيد">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={mark} alt="Piano" className={styles.markImg} />
+        </a>
+      ) : (
+        <a href="#story" className={styles.scrollCue} aria-label="اكتشف المزيد">
+          <span className={styles.scrollLine} />
+        </a>
+      )}
     </section>
   );
 }

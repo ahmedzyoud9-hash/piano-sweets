@@ -181,6 +181,34 @@
   animation: scrolldrop 1.8s ease-in-out infinite;
 }
 
+/* Brand mark at the bottom of the hero (replaces the scroll cue). */
+.markLink {
+  position: absolute;
+  z-index: 4;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  animation: markfloat 3s ease-in-out infinite;
+}
+
+.markImg {
+  display: block;
+  height: clamp(58px, 9vw, 76px);
+  width: auto;
+  filter: drop-shadow(0 8px 22px rgba(0, 0, 0, 0.5));
+}
+
+@keyframes markfloat {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, 6px);
+  }
+}
+
 @keyframes riseIn {
   from {
     opacity: 0;
@@ -217,5 +245,8 @@
     animation: none;
     opacity: 1;
     transform: none;
+  }
+  .markLink {
+    animation: none;
   }
 }
