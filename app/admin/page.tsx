@@ -135,10 +135,12 @@ const SCHEMA: Section[] = [
         label: "البطاقات",
         itemLabel: "بطاقة",
         fields: [
+          { key: "enabled", label: "إظهار هذه البطاقة", type: "toggle" },
           { key: "ar", label: "بالعربي", type: "text" },
           { key: "en", label: "بالإنجليزي", type: "text" },
           { key: "desc", label: "الوصف", type: "textarea" },
           { key: "link", label: "الرابط عند الضغط (اختياري)", type: "text" },
+          { key: "image", label: "صورة (اختياري — دائرية)", type: "image", rec: { w: 400, h: 400 }, recMobile: { w: 300, h: 300 } },
         ],
       },
     ],
