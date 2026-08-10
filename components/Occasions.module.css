@@ -92,6 +92,26 @@
   object-fit: cover;
 }
 
+/* Symbolic category icon in a circular frame. */
+.occIcon {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(221, 201, 164, 0.45);
+  background: rgba(221, 201, 164, 0.06);
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.occIcon svg {
+  width: 42px;
+  height: 42px;
+  fill: currentColor;
+}
+
 .card {
   position: relative;
   border: 1px solid rgba(221, 201, 164, 0.2);

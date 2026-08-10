@@ -11,9 +11,10 @@ type ImgRec = { w: number; h: number };
 type Field = {
   key: string;
   label: string;
-  type: "text" | "textarea" | "image" | "media" | "toggle";
+  type: "text" | "textarea" | "image" | "media" | "toggle" | "select";
   rec?: ImgRec;
   recMobile?: ImgRec;
+  options?: { value: string; label: string }[];
 };
 type ArrayDef = {
   key: string;
@@ -140,7 +141,24 @@ const SCHEMA: Section[] = [
           { key: "en", label: "بالإنجليزي", type: "text" },
           { key: "desc", label: "الوصف", type: "textarea" },
           { key: "link", label: "الرابط عند الضغط (اختياري)", type: "text" },
-          { key: "image", label: "صورة (اختياري — دائرية)", type: "image", rec: { w: 400, h: 400 }, recMobile: { w: 300, h: 300 } },
+          {
+            key: "icon",
+            label: "الأيقونة (تدلّ على نوع المناسبة)",
+            type: "select",
+            options: [
+              { value: "", label: "بدون (زخرفة أو صورة)" },
+              { value: "person", label: "👤 أفراد" },
+              { value: "users", label: "👥 مجموعة" },
+              { value: "building", label: "🏢 شركات" },
+              { value: "briefcase", label: "💼 أعمال" },
+              { value: "gift", label: "🎁 إهداء" },
+              { value: "heart", label: "❤ محبّة" },
+              { value: "star", label: "★ تميّز" },
+              { value: "cake", label: "🎂 مناسبة" },
+              { value: "crown", label: "👑 فخامة" },
+            ],
+          },
+          { key: "image", label: "صورة (اختياري — تظهر لو ما في أيقونة)", type: "image", rec: { w: 400, h: 400 }, recMobile: { w: 300, h: 300 } },
         ],
       },
     ],
@@ -528,6 +546,25 @@ export default function AdminPage() {
           </button>
           <span className={styles.fieldLabel}>{field.label}</span>
           <span className={styles.switchState}>{on ? "ظاهر" : "مخفي"}</span>
+        </div>
+      );
+    }
+    if (field.type === "select") {
+      const value = (getDeep(content, path) as string) ?? "";
+      return (
+        <div key={path.join(".")} className={styles.field}>
+          <label className={styles.fieldLabel}>{field.label}</label>
+          <select
+            className={styles.textInput}
+            value={value}
+            onChange={(e) => update(path, e.target.value)}
+          >
+            {field.options?.map((o) => (
+              <option key={o.value} value={o.value}>
+                {o.label}
+              </option>
+            ))}
+          </select>
         </div>
       );
     }
