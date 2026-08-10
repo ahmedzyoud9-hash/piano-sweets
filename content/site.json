@@ -5,7 +5,7 @@
       "mobile": ""
     },
     "mark": {
-      "web": "https://raw.githubusercontent.com/ahmedzyoud9-hash/piano-sweets/main/public/products/uploads/1786367333353-aokwnp.jpg",
+      "web": "https://raw.githubusercontent.com/ahmedzyoud9-hash/piano-sweets/main/public/products/uploads/1786367460861-59jn6p.jpg",
       "mobile": ""
     },
     "taglineEn": "Composed like music",
@@ -194,7 +194,10 @@
       "brand": "velorci",
       "tagline": "business operating platform",
       "link": "https://www.velorci.com",
-      "logo": { "web": "", "mobile": "" }
+      "logo": {
+        "web": "https://raw.githubusercontent.com/ahmedzyoud9-hash/piano-sweets/main/public/products/uploads/1786367491387-l1ti8c.jpg",
+        "mobile": ""
+      }
     }
   }
 }
