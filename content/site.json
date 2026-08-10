@@ -125,19 +125,25 @@
         "ar": "الأفراد",
         "en": "INDIVIDUALS",
         "desc": "لحظاتٌ حميمة تستحق نكهةً تليق بها.",
-        "link": "https://www.pianokw.com/"
+        "link": "https://www.pianokw.com/",
+        "enabled": true,
+        "image": { "web": "", "mobile": "" }
       },
       {
         "ar": "الشركات",
         "en": "CORPORATE",
         "desc": "إهداءٌ مؤسسيّ راقٍ يترك انطباعاً يدوم.",
-        "link": "https://www.pianokw.com/"
+        "link": "https://www.pianokw.com/",
+        "enabled": true,
+        "image": { "web": "", "mobile": "" }
       },
       {
         "ar": "الإهداء",
         "en": "GIFTING",
         "desc": "هديةٌ تعبّر عن التقدير بلغة العاطفة.",
-        "link": "https://www.pianokw.com/"
+        "link": "https://www.pianokw.com/",
+        "enabled": true,
+        "image": { "web": "", "mobile": "" }
       }
     ]
   },
