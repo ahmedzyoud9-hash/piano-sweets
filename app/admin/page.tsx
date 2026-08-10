@@ -104,6 +104,7 @@ const SCHEMA: Section[] = [
           { key: "ar", label: "الاسم بالعربي", type: "text" },
           { key: "en", label: "الاسم بالإنجليزي", type: "text" },
           { key: "desc", label: "الوصف", type: "textarea" },
+          { key: "link", label: "الرابط عند الضغط (اختياري)", type: "text" },
           { key: "image", label: "الصورة", type: "image", rec: { w: 900, h: 1125 }, recMobile: { w: 720, h: 900 } },
         ],
       },

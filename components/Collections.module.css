@@ -78,8 +78,28 @@
 }
 
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
+}
+
+.cardClickable {
+  cursor: pointer;
+}
+
+.cardClickable .shot {
+  transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.cardClickable:hover .shot {
+  transform: translateY(-4px);
+}
+
+/* Full-card click target overlaid above the content. */
+.cardLink {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
 }
 
 .shot {

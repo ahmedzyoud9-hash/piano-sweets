@@ -17,17 +17,32 @@ export default function Collections() {
           <p className={styles.tagline}>{c.tagline}</p>
         </Reveal>
         <div className={`${styles.grid} ${countClass}`}>
-          {visible.map((item) => (
-            <Reveal key={item.num} className={styles.card}>
-              <div className={styles.shot}>
-                <Picture image={item.image} alt={item.ar} className={styles.shotImg} />
-                <span className={styles.numeral}>{item.num}</span>
-              </div>
-              <h3 className={styles.cardTitle}>{item.ar}</h3>
-              <span className={styles.cardEn}>{item.en}</span>
-              <p className={styles.cardDesc}>{item.desc}</p>
-            </Reveal>
-          ))}
+          {visible.map((item) => {
+            const link = (item as { link?: string }).link || "";
+            const external = /^https?:\/\//.test(link);
+            return (
+              <Reveal
+                key={item.num}
+                className={`${styles.card}${link ? ` ${styles.cardClickable}` : ""}`}
+              >
+                <div className={styles.shot}>
+                  <Picture image={item.image} alt={item.ar} className={styles.shotImg} />
+                  <span className={styles.numeral}>{item.num}</span>
+                </div>
+                <h3 className={styles.cardTitle}>{item.ar}</h3>
+                <span className={styles.cardEn}>{item.en}</span>
+                <p className={styles.cardDesc}>{item.desc}</p>
+                {link ? (
+                  <a
+                    href={link}
+                    className={styles.cardLink}
+                    aria-label={item.ar}
+                    {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
+                  />
+                ) : null}
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>
