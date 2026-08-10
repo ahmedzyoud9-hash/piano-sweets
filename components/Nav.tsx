@@ -36,35 +36,39 @@ export default function Nav() {
   };
 
   return (
-    <header
-      id="topnav"
-      className={`${styles.nav}${scrolled ? ` ${styles.scrolled}` : ""}`}
-    >
-      <a href="#top" onClick={goTop} className={styles.brand}>
-        <span className={styles.brandSweets}>CHOCOLATE</span>
-        <span className={styles.brandPiano}>PIANO</span>
-      </a>
-
-      <nav className={`${styles.links} navlinks`}>
-        {NAV_LINKS.map((link) => (
-          <a key={link.href} href={link.href} className={styles.link}>
-            {link.label}
-          </a>
-        ))}
-      </nav>
-
-      <button
-        type="button"
-        className={`${styles.burger}${menuOpen ? ` ${styles.burgerOpen}` : ""}`}
-        aria-label={menuOpen ? "Close menu" : "Open menu"}
-        aria-expanded={menuOpen}
-        onClick={() => setMenuOpen((v) => !v)}
+    <>
+      <header
+        id="topnav"
+        className={`${styles.nav}${scrolled ? ` ${styles.scrolled}` : ""}`}
       >
-        <span />
-        <span />
-        <span />
-      </button>
+        <a href="#top" onClick={goTop} className={styles.brand}>
+          <span className={styles.brandSweets}>CHOCOLATE</span>
+          <span className={styles.brandPiano}>PIANO</span>
+        </a>
 
+        <nav className={`${styles.links} navlinks`}>
+          {NAV_LINKS.map((link) => (
+            <a key={link.href} href={link.href} className={styles.link}>
+              {link.label}
+            </a>
+          ))}
+        </nav>
+
+        <button
+          type="button"
+          className={`${styles.burger}${menuOpen ? ` ${styles.burgerOpen}` : ""}`}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((v) => !v)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+      </header>
+
+      {/* Rendered outside the header so the nav's backdrop-filter doesn't
+          trap this fixed overlay inside the small top bar. */}
       <div
         className={`${styles.mobileMenu}${menuOpen ? ` ${styles.mobileMenuOpen}` : ""}`}
       >
@@ -81,6 +85,6 @@ export default function Nav() {
           ))}
         </nav>
       </div>
-    </header>
+    </>
   );
 }
