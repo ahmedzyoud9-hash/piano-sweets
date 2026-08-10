@@ -2,10 +2,10 @@
   "hero": {
     "logo": {
       "web": "https://raw.githubusercontent.com/ahmedzyoud9-hash/piano-sweets/main/public/products/uploads/1786314686290-ep27kk.jpg",
-      "mobile": "https://raw.githubusercontent.com/ahmedzyoud9-hash/piano-sweets/main/public/products/uploads/1786367009572-06k78t.jpg"
+      "mobile": ""
     },
     "mark": {
-      "web": "",
+      "web": "https://raw.githubusercontent.com/ahmedzyoud9-hash/piano-sweets/main/public/products/uploads/1786367333353-aokwnp.jpg",
       "mobile": ""
     },
     "taglineEn": "Composed like music",
