@@ -173,6 +173,7 @@ const SCHEMA: Section[] = [
       { key: "visitTitle", label: "عنوان «زورونا» (EN)", type: "text" },
       { key: "visitAr", label: "الموقع بالعربي", type: "text" },
       { key: "visitEn", label: "الموقع بالإنجليزي", type: "text" },
+      { key: "visitLink", label: "رابط الموقع عند الضغط (خرائط جوجل مثلاً)", type: "text" },
       { key: "connectTitle", label: "عنوان «تواصل» (EN)", type: "text" },
       { key: "social.instagram", label: "رابط إنستقرام", type: "text" },
       { key: "social.whatsapp", label: "واتساب (رقم مثل 96500000000 أو رابط)", type: "text" },
