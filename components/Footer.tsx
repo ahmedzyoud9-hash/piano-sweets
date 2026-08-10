@@ -35,6 +35,7 @@ const ICONS = {
 
 export default function Footer() {
   const c = content.footer;
+  const visitLink = (c as { visitLink?: string }).visitLink || "";
   const social = (c.social ?? {}) as {
     instagram?: string;
     whatsapp?: string;
@@ -60,10 +61,26 @@ export default function Footer() {
           </Reveal>
           <Reveal className={styles.col}>
             <span className={styles.colTitle}>{c.visitTitle}</span>
-            <span className={styles.colText}>{c.visitAr}</span>
-            <span className={`${styles.colText} ${styles.colTextLtr}`}>
-              {c.visitEn}
-            </span>
+            {visitLink ? (
+              <a
+                href={visitLink}
+                target="_blank"
+                rel="noreferrer"
+                className={styles.visitLink}
+              >
+                <span className={styles.colText}>{c.visitAr}</span>
+                <span className={`${styles.colText} ${styles.colTextLtr}`}>
+                  {c.visitEn}
+                </span>
+              </a>
+            ) : (
+              <>
+                <span className={styles.colText}>{c.visitAr}</span>
+                <span className={`${styles.colText} ${styles.colTextLtr}`}>
+                  {c.visitEn}
+                </span>
+              </>
+            )}
           </Reveal>
           <Reveal className={styles.col}>
             <span className={styles.colTitle}>{c.connectTitle}</span>
