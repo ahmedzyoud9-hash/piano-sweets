@@ -53,8 +53,8 @@ export default function Footer() {
         <div className={`${styles.grid} footgrid`}>
           <Reveal>
             <div className={styles.brand}>
-              <span className={styles.brandSweets}>CHOCOLATE</span>
               <span className={styles.brandPiano}>PIANO</span>
+              <span className={styles.brandSweets}>CHOCOLATE</span>
             </div>
             <p className={styles.blurb}>{c.blurb}</p>
           </Reveal>
