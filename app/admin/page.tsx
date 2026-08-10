@@ -428,13 +428,13 @@ export default function AdminPage() {
                       ? "استبدال الصورة"
                       : "رفع صورة"}
                   </label>
-                  {url && v.key === "mobile" && (
+                  {url && (
                     <button
                       type="button"
                       className={styles.clearBtn}
                       onClick={() => update([...path, v.key], "")}
                     >
-                      إزالة
+                      ✕ إزالة الصورة
                     </button>
                   )}
                 </div>
