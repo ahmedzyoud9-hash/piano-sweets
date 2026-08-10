@@ -127,6 +127,7 @@
         "desc": "لحظاتٌ حميمة تستحق نكهةً تليق بها.",
         "link": "https://www.pianokw.com/",
         "enabled": true,
+        "icon": "person",
         "image": {
           "web": "",
           "mobile": ""
@@ -138,6 +139,7 @@
         "desc": "إهداءٌ مؤسسيّ راقٍ يترك انطباعاً يدوم.",
         "link": "#enquiry",
         "enabled": true,
+        "icon": "building",
         "image": {
           "web": "",
           "mobile": ""
@@ -149,6 +151,7 @@
         "desc": "هديةٌ تعبّر عن التقدير بلغة العاطفة.",
         "link": "https://www.pianokw.com/",
         "enabled": false,
+        "icon": "gift",
         "image": {
           "web": "",
           "mobile": ""
