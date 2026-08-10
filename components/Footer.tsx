@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Reveal from "./Reveal";
 import styles from "./Footer.module.css";
 import { content } from "./siteContent";
@@ -106,9 +105,6 @@ export default function Footer() {
         <div className={styles.bottom}>
           <span className={styles.copyright}>{c.copyright}</span>
           <div className={styles.bottomRight}>
-            <Link href="/admin" className={styles.adminLink}>
-              لوحة الإدارة
-            </Link>
             <span className={styles.tagline}>{c.tagline}</span>
           </div>
         </div>
