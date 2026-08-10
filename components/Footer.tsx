@@ -35,6 +35,20 @@ const ICONS = {
 export default function Footer() {
   const c = content.footer;
   const visitLink = (c as { visitLink?: string }).visitLink || "";
+  const pb = (c as {
+    poweredBy?: {
+      brand?: string;
+      tagline?: string;
+      link?: string;
+      logo?: { web?: string };
+    };
+  }).poweredBy;
+  const poweredBy = {
+    brand: pb?.brand || "",
+    tagline: pb?.tagline || "",
+    link: pb?.link || "",
+    logo: pb?.logo?.web || "",
+  };
   const social = (c.social ?? {}) as {
     instagram?: string;
     whatsapp?: string;
@@ -108,6 +122,33 @@ export default function Footer() {
             <span className={styles.tagline}>{c.tagline}</span>
           </div>
         </div>
+
+        {poweredBy.brand ? (
+          <a
+            href={poweredBy.link || "#"}
+            target="_blank"
+            rel="noreferrer"
+            className={styles.poweredBy}
+          >
+            {poweredBy.logo ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={poweredBy.logo}
+                alt={poweredBy.brand}
+                className={styles.poweredByLogo}
+              />
+            ) : null}
+            <span className={styles.poweredByText}>
+              <span className={styles.poweredByLabel}>Powered by</span>
+              <span className={styles.poweredByBrand}>{poweredBy.brand}</span>
+              {poweredBy.tagline ? (
+                <span className={styles.poweredByTagline}>
+                  — {poweredBy.tagline}
+                </span>
+              ) : null}
+            </span>
+          </a>
+        ) : null}
       </div>
     </footer>
   );

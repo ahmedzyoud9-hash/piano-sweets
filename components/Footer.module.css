@@ -152,6 +152,61 @@
   opacity: 0.6;
 }
 
+/* Powered by credit */
+.poweredBy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(221, 201, 164, 0.14);
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.poweredBy:hover {
+  opacity: 1;
+}
+
+.poweredByLogo {
+  height: 22px;
+  width: auto;
+}
+
+.poweredByText {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.poweredByLabel {
+  font-family: var(--font-jost);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--champagne);
+  opacity: 0.7;
+}
+
+.poweredByBrand {
+  font-family: var(--font-jost);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--champagne);
+}
+
+.poweredByTagline {
+  font-family: var(--font-tajawal);
+  font-size: 12px;
+  color: var(--champagne);
+  opacity: 0.55;
+}
+
 .bottomRight {
   display: flex;
   align-items: center;
