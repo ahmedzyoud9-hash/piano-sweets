@@ -200,6 +200,10 @@ const SCHEMA: Section[] = [
       { key: "social.email", label: "البريد الإلكتروني (أيقونة في الفوتر)", type: "text" },
       { key: "copyright", label: "حقوق النشر", type: "text" },
       { key: "tagline", label: "الشعار الختامي", type: "text" },
+      { key: "poweredBy.brand", label: "Powered by — الاسم", type: "text" },
+      { key: "poweredBy.tagline", label: "Powered by — الوصف", type: "text" },
+      { key: "poweredBy.link", label: "Powered by — الرابط", type: "text" },
+      { key: "poweredBy.logo", label: "Powered by — الشعار", type: "image", rec: { w: 200, h: 200 }, recMobile: { w: 200, h: 200 } },
     ],
   },
 ];
