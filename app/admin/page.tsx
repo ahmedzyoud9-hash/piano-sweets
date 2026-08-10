@@ -36,7 +36,8 @@ const SCHEMA: Section[] = [
     key: "hero",
     title: "الغلاف (Hero)",
     fields: [
-      { key: "logo", label: "شعار الغلاف", type: "image", rec: { w: 880, h: 880 }, recMobile: { w: 600, h: 600 } },
+      { key: "logo", label: "صورة خلفية الغلاف", type: "image", rec: { w: 1920, h: 1080 }, recMobile: { w: 1080, h: 1350 } },
+      { key: "mark", label: "شعار أسفل البنر (اختياري)", type: "image", rec: { w: 300, h: 460 }, recMobile: { w: 300, h: 460 } },
       { key: "taglineEn", label: "السطر بالإنجليزي", type: "text" },
       { key: "taglineAr", label: "السطر بالعربي", type: "text" },
       { key: "intro", label: "النص التعريفي", type: "textarea" },
