@@ -1,5 +1,24 @@
+import { Fragment } from "react";
 import styles from "./Hero.module.css";
 import { content } from "./siteContent";
+
+// The CTA label can mix Arabic and Latin (e.g. "اطلب الآن  Order now").
+// letter-spacing looks right on the uppercase Latin part but breaks the
+// connected Arabic script, so we only apply the tracking to Latin runs.
+function renderCta(text: string) {
+  const parts = text.split(/([A-Za-z0-9][A-Za-z0-9\s]*[A-Za-z0-9]|[A-Za-z0-9])/);
+  return parts
+    .filter((part) => part !== "")
+    .map((part, i) =>
+      /[A-Za-z0-9]/.test(part) ? (
+        <span key={i} className={styles.ctaEn}>
+          {part}
+        </span>
+      ) : (
+        <Fragment key={i}>{part}</Fragment>
+      ),
+    );
+}
 
 export default function Hero() {
   const c = content.hero;
@@ -30,7 +49,7 @@ export default function Hero() {
           className={styles.cta}
           {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
         >
-          {c.cta}
+          {renderCta(c.cta)}
         </a>
       </div>
 
