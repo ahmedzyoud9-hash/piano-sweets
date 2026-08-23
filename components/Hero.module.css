@@ -138,7 +138,6 @@
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.28em;
   color: var(--burgundy);
   background: var(--champagne);
   padding: 17px 42px;
@@ -148,6 +147,11 @@
   opacity: 0;
   animation: riseIn 1s ease 0.8s forwards;
   transition: transform 0.35s, background 0.35s, box-shadow 0.35s;
+}
+
+/* Tracking only on the Latin part — it breaks connected Arabic letters. */
+.ctaEn {
+  letter-spacing: 0.28em;
 }
 
 .cta:hover {
